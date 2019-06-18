@@ -31592,7 +31592,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/carousel.jsx":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/index-carousel.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31642,8 +31642,13 @@ function (_Component) {
     value: function render() {
       return _react.default.createElement(_reactResponsiveCarousel.Carousel, {
         showArrows: true,
+        emulateTouch: true,
         infiniteLoop: true,
-        interval: 100
+        autoPlay: true,
+        interval: 2000,
+        onChange: this._onChange,
+        onClickItem: this._onClickItem,
+        onThumbClick: this._onClickThumb
       }, _react.default.createElement("div", null, _react.default.createElement("img", {
         src: "http://placehold.it/1080x300?"
       }), _react.default.createElement("p", {
@@ -31684,7 +31689,7 @@ require("bootstrap/dist/css/bootstrap.css");
 
 require("../node_modules/font-awesome/css/font-awesome.min.css");
 
-var _carousel = _interopRequireDefault(require("./components/carousel"));
+var _indexCarousel = _interopRequireDefault(require("./components/index-carousel"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31751,10 +31756,12 @@ function (_Component) {
         className: "navbar-nav mr-auto"
       }, _react.default.createElement("li", {
         className: "nav-item"
+      }, _react.default.createElement("a", {
+        href: "/"
       }, _react.default.createElement("img", {
         src: "http://placehold.it/50x40?",
         alt: ""
-      })), _react.default.createElement("li", {
+      }))), _react.default.createElement("li", {
         className: "nav-item active",
         style: {
           marginLeft: 10
@@ -31782,7 +31789,7 @@ function (_Component) {
         className: "navbar-nav ml-auto"
       }, _react.default.createElement("li", {
         className: "nav-item"
-      }, this.showLoginOrProfileButtons())))), _react.default.createElement(_carousel.default, null));
+      }, this.showLoginOrProfileButtons())))), _react.default.createElement(_indexCarousel.default, null));
     }
   }]);
 
@@ -31790,7 +31797,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css","../node_modules/font-awesome/css/font-awesome.min.css":"../node_modules/font-awesome/css/font-awesome.min.css","./components/carousel":"components/carousel.jsx"}],"App.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css","../node_modules/font-awesome/css/font-awesome.min.css":"../node_modules/font-awesome/css/font-awesome.min.css","./components/index-carousel":"components/index-carousel.jsx"}],"App.jsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

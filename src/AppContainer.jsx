@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "../node_modules/font-awesome/css/font-awesome.min.css";
-import Carousel from './components/carousel';
+import Carousel from './components/index-carousel';
 
 export default class App extends Component {
 
@@ -30,7 +30,7 @@ export default class App extends Component {
           <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <img src="http://placehold.it/50x40?" alt="" />
+                <a href="/"><img src="http://placehold.it/50x40?" alt="" /></a>
               </li>
               <li className="nav-item active" style={{ marginLeft: 10 }}>
                 <Link to="/about" className="nav-link">
@@ -64,7 +64,7 @@ export default class App extends Component {
             </ul>
           </div>
         </nav>
-    
+            
         <Carousel />
       </Router>      
     );
