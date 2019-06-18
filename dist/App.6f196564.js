@@ -31592,7 +31592,17 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/index-carousel.jsx":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"images/sample1.jpg":[function(require,module,exports) {
+module.exports = "/sample1.5066c7e4.jpg";
+},{}],"images/sample2.jpg":[function(require,module,exports) {
+module.exports = "/sample2.a8449118.jpg";
+},{}],"images/sample3.jpg":[function(require,module,exports) {
+module.exports = "/sample3.943bb384.jpg";
+},{}],"images/sample4.jpg":[function(require,module,exports) {
+module.exports = "/sample4.ff87620a.jpg";
+},{}],"images/sample5.jpg":[function(require,module,exports) {
+module.exports = "/sample5.93388cb9.jpg";
+},{}],"components/index-carousel.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31605,6 +31615,18 @@ var _react = _interopRequireWildcard(require("react"));
 var _reactResponsiveCarousel = require("react-responsive-carousel");
 
 require("react-responsive-carousel/lib/styles/carousel.css");
+
+var _sample = _interopRequireDefault(require("../images/sample1.jpg"));
+
+var _sample2 = _interopRequireDefault(require("../images/sample2.jpg"));
+
+var _sample3 = _interopRequireDefault(require("../images/sample3.jpg"));
+
+var _sample4 = _interopRequireDefault(require("../images/sample4.jpg"));
+
+var _sample5 = _interopRequireDefault(require("../images/sample5.jpg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -31645,24 +31667,24 @@ function (_Component) {
         emulateTouch: true,
         infiniteLoop: true,
         autoPlay: true,
-        interval: 2000,
+        interval: 3000,
         onChange: this._onChange,
         onClickItem: this._onClickItem,
         onThumbClick: this._onClickThumb
       }, _react.default.createElement("div", null, _react.default.createElement("img", {
-        src: "../../src/images/sample1.jpg"
-      }), _react.default.createElement("p", {
+        src: _sample.default
+      }), " ", _react.default.createElement("p", {
         className: "legend"
       }, "Welcome to W.W Coders")), _react.default.createElement("div", null, _react.default.createElement("img", {
-        src: "http://placehold.it/1080x300?"
+        src: _sample2.default
       }), _react.default.createElement("p", {
         className: "legend"
       }, "Faculty of Computing")), _react.default.createElement("div", null, _react.default.createElement("img", {
-        src: "http://placehold.it/1080x300?"
+        src: _sample5.default
       }), _react.default.createElement("p", {
         className: "legend"
       }, "Faculty of Engineering")), _react.default.createElement("div", null, _react.default.createElement("img", {
-        src: "http://placehold.it/1080x300?"
+        src: _sample4.default
       }), _react.default.createElement("p", {
         className: "legend"
       }, "Faculty of Business Management")));
@@ -31673,7 +31695,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = CarouselComponent;
-},{"react":"../node_modules/react/index.js","react-responsive-carousel":"../node_modules/react-responsive-carousel/lib/index.js","react-responsive-carousel/lib/styles/carousel.css":"../node_modules/react-responsive-carousel/lib/styles/carousel.css"}],"components/index-cards.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-responsive-carousel":"../node_modules/react-responsive-carousel/lib/index.js","react-responsive-carousel/lib/styles/carousel.css":"../node_modules/react-responsive-carousel/lib/styles/carousel.css","../images/sample1.jpg":"images/sample1.jpg","../images/sample2.jpg":"images/sample2.jpg","../images/sample3.jpg":"images/sample3.jpg","../images/sample4.jpg":"images/sample4.jpg","../images/sample5.jpg":"images/sample5.jpg"}],"components/index-cards.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
