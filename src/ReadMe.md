@@ -4,4 +4,3 @@
    when you creating new components for better understanding   
     
    eg: **student-signup-form.jsx**
-       **admin-dashboard.jsx**
