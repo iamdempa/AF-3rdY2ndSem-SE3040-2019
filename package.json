@@ -1,0 +1,35 @@
+{
+  "name": "af-3rdy2ndsem-se3040-2019",
+  "version": "1.0.0",
+  "description": "Application Framework Project (3rd Year 2nd Semester) - Sri Lanka Institute of Information Technology.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamdempa/AF-3rdY2ndSem-SE3040-2019.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamdempa/AF-3rdY2ndSem-SE3040-2019/issues"
+  },
+  "homepage": "https://github.com/iamdempa/AF-3rdY2ndSem-SE3040-2019#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.0",
+    "nodemailer": "^6.2.1",
+    "nodemon": "^1.19.1",
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1"
+  }
+}
