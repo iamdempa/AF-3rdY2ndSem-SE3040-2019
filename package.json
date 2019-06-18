@@ -31,6 +31,11 @@
     "parcel-bundler": "^1.12.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-responsive-carousel": "^3.1.49",
     "react-router-dom": "^5.0.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "font-awesome": "^4.7.0"
   }
 }
