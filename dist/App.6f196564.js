@@ -32111,6 +32111,14 @@ function (_Component) {
           marginLeft: 10
         }
       }, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/",
+        className: "nav-link"
+      }, "Home")), _react.default.createElement("li", {
+        className: "nav-item",
+        style: {
+          marginLeft: 10
+        }
+      }, _react.default.createElement(_reactRouterDom.Link, {
         to: "/about",
         className: "nav-link"
       }, "About")), _react.default.createElement("li", {

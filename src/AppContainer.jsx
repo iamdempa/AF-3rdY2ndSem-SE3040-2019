@@ -39,6 +39,11 @@ export default class App extends Component {
                 <a href="/"><img src="http://placehold.it/50x40?" alt="" /></a>
               </li>
               <li className="nav-item active" style={{ marginLeft: 10 }}>
+                <Link to="/" className="nav-link">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item" style={{ marginLeft: 10 }}>
                 <Link to="/about" className="nav-link">
                   About
                 </Link>
