@@ -4,7 +4,8 @@
   "description": "Application Framework Project (3rd Year 2nd Semester) - Sri Lanka Institute of Information Technology.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
