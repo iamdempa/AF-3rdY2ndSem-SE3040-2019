@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.css";
 import "../node_modules/font-awesome/css/font-awesome.min.css";
+
 import Carousel from './components/index-carousel';
+import Cards from './components/index-cards';
+
 
 export default class App extends Component {
 
@@ -64,8 +68,13 @@ export default class App extends Component {
             </ul>
           </div>
         </nav>
-            
+
+        {/* show carousel */}
         <Carousel />
+
+        {/* show cards */}
+        <Cards />
+
       </Router>      
     );
   }
