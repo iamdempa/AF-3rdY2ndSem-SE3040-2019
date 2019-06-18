@@ -6,6 +6,8 @@ import "../node_modules/font-awesome/css/font-awesome.min.css";
 
 import Carousel from './components/index-carousel';
 import Cards from './components/index-cards';
+import Paragraph from './components/index-paragraph';
+import Footer from './components/index-footer';
 
 
 export default class App extends Component {
@@ -74,6 +76,14 @@ export default class App extends Component {
 
         {/* show cards */}
         <Cards />
+
+        <br />
+
+        {/* show paragraph here */}
+        <Paragraph />
+
+        {/* show footer here */}
+        <Footer />
 
       </Router>      
     );

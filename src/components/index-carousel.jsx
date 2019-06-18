@@ -20,7 +20,7 @@ export default class CarouselComponent extends Component {
       >
         <div>
           <img src="http://placehold.it/1080x300?" />
-          <p className="legend">Welcome to SLIIT</p>
+          <p className="legend">Welcome to W.W Coders</p>
         </div>
         <div>
           <img src="http://placehold.it/1080x300?" />

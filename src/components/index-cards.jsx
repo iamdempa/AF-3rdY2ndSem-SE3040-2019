@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 
-export default class CarouselComponent extends Component {
+export default class Cards extends Component {
 
   render() {
     return (
       <div className="container">
           <div className="row justify-content-center text-center">
-                <div className="col-3" style={{margin:0}}>
+                <div className="col-3 col-xs-6" style={{margin:0}}>
 
                     <div className="card" style={{width: '16rem'}}>
                         <img className="card-img-top" src="http://placehold.it/100x90?" alt="Card image cap"/>
@@ -17,7 +17,7 @@ export default class CarouselComponent extends Component {
                     </div>
 
                 </div>
-                <div className="col-3" style={{margin:0}}>
+                <div className="col-3 col-xs-6" style={{margin:0}}>
                 <div className="card" style={{width: '16rem'}}>
                         <img className="card-img-top" src="http://placehold.it/100x90?" alt="Card image cap"/>
                         <div className="card-body">
@@ -26,7 +26,7 @@ export default class CarouselComponent extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="col-3" style={{margin:0}}>
+                <div className="col-3 col-xs-6" style={{margin:0}}>
                 <div className="card" style={{width: '16rem'}}>
                         <img className="card-img-top" src="http://placehold.it/100x90?" alt="Card image cap"/>
                         <div className="card-body">
@@ -36,7 +36,7 @@ export default class CarouselComponent extends Component {
                     </div>
                 </div>
 
-                <div className="col-3" style={{margin:0}}>
+                <div className="col-3 col-xs-6" style={{margin:0}}>
                 <div className="card" style={{width: '16rem'}}>
                         <img className="card-img-top" src="http://placehold.it/100x90?" alt="Card image cap"/>
                         <div className="card-body">
