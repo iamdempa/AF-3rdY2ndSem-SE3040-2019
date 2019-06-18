@@ -31650,7 +31650,7 @@ function (_Component) {
         onClickItem: this._onClickItem,
         onThumbClick: this._onClickThumb
       }, _react.default.createElement("div", null, _react.default.createElement("img", {
-        src: "http://placehold.it/1080x300?"
+        src: "../../src/images/sample1.jpg"
       }), _react.default.createElement("p", {
         className: "legend"
       }, "Welcome to W.W Coders")), _react.default.createElement("div", null, _react.default.createElement("img", {

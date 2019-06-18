@@ -10,7 +10,7 @@ server.use(cors());
 server.use(bodyParser.urlencoded({extended: false}));
 server.use(bodyParser.json());
 server.use(bundler.middleware());
-server.use(express.static('./dist'));
+// server.use(express.static('./src'));
 
 server.get('/', function (req, res) {
     res.sendFile('./dist/index.html');

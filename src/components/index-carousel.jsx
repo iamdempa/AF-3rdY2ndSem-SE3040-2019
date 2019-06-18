@@ -19,7 +19,7 @@ export default class CarouselComponent extends Component {
         onThumbClick={this._onClickThumb}
       >
         <div>
-          <img src="http://placehold.it/1080x300?" />
+          <img src="../../src/images/sample1.jpg" />
           <p className="legend">Welcome to W.W Coders</p>
         </div>
         <div>
