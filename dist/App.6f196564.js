@@ -32131,23 +32131,20 @@ function (_Component) {
       }, _react.default.createElement("div", {
         className: "d-flex justify-content-center h-100"
       }, _react.default.createElement("div", {
-        className: "user_card"
+        className: "user_card bg-dark"
       }, _react.default.createElement("div", {
         className: "d-flex justify-content-center"
-      }, _react.default.createElement("div", {
-        className: "brand_logo_container"
-      }, _react.default.createElement("img", {
-        src: "https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png",
-        className: "brand_logo",
-        alt: "Logo"
-      }))), _react.default.createElement("div", {
-        className: "d-flex justify-content-center form_container"
+      }), _react.default.createElement("div", {
+        className: "d-flex justify-content-center form_container",
+        style: {
+          marginTop: 0
+        }
       }, _react.default.createElement("form", null, _react.default.createElement("div", {
         className: "input-group mb-3"
       }, _react.default.createElement("div", {
         className: "input-group-append"
       }, _react.default.createElement("span", {
-        className: "input-group-text"
+        className: "input-group-text bg-info"
       }, _react.default.createElement("i", {
         className: "fa fa-user"
       }))), _react.default.createElement("input", {
@@ -32160,7 +32157,7 @@ function (_Component) {
       }, _react.default.createElement("div", {
         className: "input-group-append"
       }, _react.default.createElement("span", {
-        className: "input-group-text"
+        className: "input-group-text bg-info"
       }, _react.default.createElement("i", {
         className: "fa fa-lock"
       }))), _react.default.createElement("input", {
@@ -32178,13 +32175,16 @@ function (_Component) {
         id: "customControlInline"
       }), _react.default.createElement("label", {
         className: "custom-control-label",
-        htmlFor: "customControlInline"
+        htmlFor: "customControlInline",
+        style: {
+          color: "#ffffff"
+        }
       }, "Remember me"))))), _react.default.createElement("div", {
         className: "d-flex justify-content-center mt-3 login_container"
       }, _react.default.createElement("button", {
         type: "button",
         name: "button",
-        className: "btn login_btn"
+        className: "btn login_btn bg-info"
       }, "Login")))));
     }
   }]);
