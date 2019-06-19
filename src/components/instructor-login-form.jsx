@@ -1,10 +1,30 @@
 import React, { Component } from "react";
 
 export default class InstructorLoginForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      username: "",
+      password: ""
+    };
+
+    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onChangeUsername(e) {
+    this.setState({
+      username: e.target.value
+    });
+  }
+  onSubmit(e) {
+    e.preventDefault();
+  }
+
   render() {
     return (
-      
-      <div className="container h-100" style={{marginTop:100}}>
+      <div className="container h-100" style={{ marginTop: 100 }}>
         <div className="d-flex justify-content-center h-100">
           <div className="user_card bg-dark">
             <div className="d-flex justify-content-center">
@@ -16,8 +36,11 @@ export default class InstructorLoginForm extends Component {
                 />
               </div> */}
             </div>
-            <div className="d-flex justify-content-center form_container" style={{marginTop:0}}>
-              <form>
+            <div
+              className="d-flex justify-content-center form_container"
+              style={{ marginTop: 0 }}
+            >
+              <form onSubmit={this.onSubmit}>
                 <div className="input-group mb-3">
                   <div className="input-group-append">
                     <span className="input-group-text bg-info">
@@ -25,14 +48,16 @@ export default class InstructorLoginForm extends Component {
                     </span>
                   </div>
                   <input
+                    value={this.state.username}
+                    onChange={this.onChangeUsername}
                     type="text"
                     name=""
-                    className="form-control input_user"                    
+                    className="form-control input_user"
                     placeholder="username"
                   />
                 </div>
                 <div className="input-group mb-2">
-                <div className="input-group-append">
+                  <div className="input-group-append">
                     <span className="input-group-text bg-info">
                       <i className="fa fa-lock" />
                     </span>
@@ -40,7 +65,7 @@ export default class InstructorLoginForm extends Component {
                   <input
                     type="password"
                     name=""
-                    className="form-control input_user"                    
+                    className="form-control input_user"
                     placeholder="password"
                   />
                 </div>
@@ -54,7 +79,7 @@ export default class InstructorLoginForm extends Component {
                     <label
                       className="custom-control-label"
                       htmlFor="customControlInline"
-                      style={{color: "#ffffff"}}
+                      style={{ color: "#ffffff" }}
                     >
                       Remember me
                     </label>
@@ -62,11 +87,16 @@ export default class InstructorLoginForm extends Component {
                 </div>
               </form>
             </div>
+            
             <div className="d-flex justify-content-center mt-3 login_container">
-              <button type="button" name="button" className="btn login_btn bg-info">
+              <button
+                type="button"
+                name="button"
+                className="btn login_btn bg-info"
+              >
                 Login
               </button>
-            </div>            
+            </div>
           </div>
         </div>
       </div>

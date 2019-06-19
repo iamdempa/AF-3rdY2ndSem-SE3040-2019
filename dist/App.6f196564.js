@@ -32101,9 +32101,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -32114,13 +32114,34 @@ var InstructorLoginForm =
 function (_Component) {
   _inherits(InstructorLoginForm, _Component);
 
-  function InstructorLoginForm() {
+  function InstructorLoginForm(props) {
+    var _this;
+
     _classCallCheck(this, InstructorLoginForm);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(InstructorLoginForm).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(InstructorLoginForm).call(this, props));
+    _this.state = {
+      username: "",
+      password: ""
+    };
+    _this.onChangeUsername = _this.onChangeUsername.bind(_assertThisInitialized(_this));
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(InstructorLoginForm, [{
+    key: "onChangeUsername",
+    value: function onChangeUsername(e) {
+      this.setState({
+        username: e.target.value
+      });
+    }
+  }, {
+    key: "onSubmit",
+    value: function onSubmit(e) {
+      e.preventDefault();
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", {
@@ -32139,7 +32160,9 @@ function (_Component) {
         style: {
           marginTop: 0
         }
-      }, _react.default.createElement("form", null, _react.default.createElement("div", {
+      }, _react.default.createElement("form", {
+        onSubmit: this.onSubmit
+      }, _react.default.createElement("div", {
         className: "input-group mb-3"
       }, _react.default.createElement("div", {
         className: "input-group-append"
@@ -32148,6 +32171,8 @@ function (_Component) {
       }, _react.default.createElement("i", {
         className: "fa fa-user"
       }))), _react.default.createElement("input", {
+        value: this.state.username,
+        onChange: this.onChangeUsername,
         type: "text",
         name: "",
         className: "form-control input_user",
