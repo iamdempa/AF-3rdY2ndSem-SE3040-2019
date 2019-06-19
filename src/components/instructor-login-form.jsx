@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import InstructorProfile from "./instructor-profile";
+import InstructorLoginFormComponent from "./instructor-login-form-component";
 
 export default class InstructorLoginForm extends Component {
+
   constructor(props) {
     super(props);
 
@@ -10,7 +14,8 @@ export default class InstructorLoginForm extends Component {
     };
 
     this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   onChangeUsername(e) {
@@ -18,88 +23,47 @@ export default class InstructorLoginForm extends Component {
       username: e.target.value
     });
   }
-  onSubmit(e) {
+
+  onChangePassword(e) {
+    this.setState({
+      password: e.target.value
+    });
+  }
+
+  handleOnClick (e){
     e.preventDefault();
+    this.props.history.push(`/instructor/${this.state.username}`);    
   }
 
   render() {
     return (
-      <div className="container h-100" style={{ marginTop: 100 }}>
-        <div className="d-flex justify-content-center h-100">
-          <div className="user_card bg-dark">
-            <div className="d-flex justify-content-center">
-              {/* <div className="brand_logo_container">
-                <img
-                  src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png"
-                  className="brand_logo"
-                  alt="Logo"
-                />
-              </div> */}
-            </div>
-            <div
-              className="d-flex justify-content-center form_container"
-              style={{ marginTop: 0 }}
-            >
-              <form onSubmit={this.onSubmit}>
-                <div className="input-group mb-3">
-                  <div className="input-group-append">
-                    <span className="input-group-text bg-info">
-                      <i className="fa fa-user" />
-                    </span>
-                  </div>
-                  <input
-                    value={this.state.username}
-                    onChange={this.onChangeUsername}
-                    type="text"
-                    name=""
-                    className="form-control input_user"
-                    placeholder="username"
-                  />
-                </div>
-                <div className="input-group mb-2">
-                  <div className="input-group-append">
-                    <span className="input-group-text bg-info">
-                      <i className="fa fa-lock" />
-                    </span>
-                  </div>
-                  <input
-                    type="password"
-                    name=""
-                    className="form-control input_user"
-                    placeholder="password"
-                  />
-                </div>
-                <div className="form-group">
-                  <div className="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      className="custom-control-input"
-                      id="customControlInline"
-                    />
-                    <label
-                      className="custom-control-label"
-                      htmlFor="customControlInline"
-                      style={{ color: "#ffffff" }}
-                    >
-                      Remember me
-                    </label>
-                  </div>
-                </div>
-              </form>
-            </div>
-            
-            <div className="d-flex justify-content-center mt-3 login_container">
-              <button
-                type="button"
-                name="button"
-                className="btn login_btn bg-info"
-              >
-                Login
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path="/login"
+            render={props => (
+              <InstructorLoginFormComponent
+                {...props}
+                username = {this.state.username}
+                onChangeUsername = {this.onChangeUsername}
+                password = {this.state.password}
+                onChangePassword = {this.onChangePassword}
+                handleOnClick = {this.handleOnClick}                                
+              />
+            )}
+          />
+          <Route
+            path={"/instructor/:instructorId"}
+            render={props => (
+              <InstructorProfile 
+              {...props}
+              username = { this.state.username }
+              />
+            )}
+          />
+        </Switch>
+      </Router>
     );
   }
 }

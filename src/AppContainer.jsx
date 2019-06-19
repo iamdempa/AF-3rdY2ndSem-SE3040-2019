@@ -63,7 +63,7 @@ export default class App extends Component {
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <Link                    
+                  <Link                                     
                     to="/login"
                     className="btn btn-info btn-sm"
                   >
