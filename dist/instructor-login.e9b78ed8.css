@@ -37,7 +37,7 @@
     }
     .login_btn {
         width: 100%;
-        background: #c0392b !important;
+        background: #428bca !important;
         color: white !important;
     }
     .login_btn:focus {

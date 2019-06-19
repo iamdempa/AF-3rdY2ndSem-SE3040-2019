@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
-export default class InstructorLogin extends Component {
+export default class InstructorLoginForm extends Component {
   render() {
     return (
-      <div className="container h-100">
+      
+      <div className="container h-100" style={{marginTop:100}}>
         <div className="d-flex justify-content-center h-100">
           <div className="user_card">
             <div className="d-flex justify-content-center">
@@ -20,28 +21,26 @@ export default class InstructorLogin extends Component {
                 <div className="input-group mb-3">
                   <div className="input-group-append">
                     <span className="input-group-text">
-                      <i className="fas fa-user" />
+                      <i className="fa fa-user" />
                     </span>
                   </div>
                   <input
                     type="text"
                     name=""
-                    className="form-control input_user"
-                    value=""
+                    className="form-control input_user"                    
                     placeholder="username"
                   />
                 </div>
                 <div className="input-group mb-2">
-                  <div className="input-group-append">
+                <div className="input-group-append">
                     <span className="input-group-text">
-                      <i className="fas fa-key" />
+                      <i className="fa fa-lock" />
                     </span>
                   </div>
                   <input
                     type="password"
                     name=""
-                    className="form-control input_pass"
-                    value=""
+                    className="form-control input_user"                    
                     placeholder="password"
                   />
                 </div>
@@ -54,7 +53,7 @@ export default class InstructorLogin extends Component {
                     />
                     <label
                       className="custom-control-label"
-                      for="customControlInline"
+                      htmlFor="customControlInline"
                     >
                       Remember me
                     </label>
@@ -66,18 +65,7 @@ export default class InstructorLogin extends Component {
               <button type="button" name="button" className="btn login_btn">
                 Login
               </button>
-            </div>
-            <div className="mt-4">
-              <div className="d-flex justify-content-center links">
-                Don't have an account?{" "}
-                <a href="#" className="ml-2">
-                  Sign Up
-                </a>
-              </div>
-              <div className="d-flex justify-content-center links">
-                <a href="#">Forgot your password?</a>
-              </div>
-            </div>
+            </div>            
           </div>
         </div>
       </div>

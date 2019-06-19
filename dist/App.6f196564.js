@@ -29698,7 +29698,123 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./..\\fonts\\fontawesome-webfont.eot":[["fontawesome-webfont.80db1567.eot","../node_modules/font-awesome/fonts/fontawesome-webfont.eot"],"../node_modules/font-awesome/fonts/fontawesome-webfont.eot"],"./..\\fonts\\fontawesome-webfont.woff2":[["fontawesome-webfont.cda54bb3.woff2","../node_modules/font-awesome/fonts/fontawesome-webfont.woff2"],"../node_modules/font-awesome/fonts/fontawesome-webfont.woff2"],"./..\\fonts\\fontawesome-webfont.woff":[["fontawesome-webfont.c3cf7ef2.woff","../node_modules/font-awesome/fonts/fontawesome-webfont.woff"],"../node_modules/font-awesome/fonts/fontawesome-webfont.woff"],"./..\\fonts\\fontawesome-webfont.ttf":[["fontawesome-webfont.cf80d36a.ttf","../node_modules/font-awesome/fonts/fontawesome-webfont.ttf"],"../node_modules/font-awesome/fonts/fontawesome-webfont.ttf"],"./..\\fonts\\fontawesome-webfont.svg":[["fontawesome-webfont.9ab71dbb.svg","../node_modules/font-awesome/fonts/fontawesome-webfont.svg"],"../node_modules/font-awesome/fonts/fontawesome-webfont.svg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/classnames/index.js":[function(require,module,exports) {
+},{"./..\\fonts\\fontawesome-webfont.eot":[["fontawesome-webfont.80db1567.eot","../node_modules/font-awesome/fonts/fontawesome-webfont.eot"],"../node_modules/font-awesome/fonts/fontawesome-webfont.eot"],"./..\\fonts\\fontawesome-webfont.woff2":[["fontawesome-webfont.cda54bb3.woff2","../node_modules/font-awesome/fonts/fontawesome-webfont.woff2"],"../node_modules/font-awesome/fonts/fontawesome-webfont.woff2"],"./..\\fonts\\fontawesome-webfont.woff":[["fontawesome-webfont.c3cf7ef2.woff","../node_modules/font-awesome/fonts/fontawesome-webfont.woff"],"../node_modules/font-awesome/fonts/fontawesome-webfont.woff"],"./..\\fonts\\fontawesome-webfont.ttf":[["fontawesome-webfont.cf80d36a.ttf","../node_modules/font-awesome/fonts/fontawesome-webfont.ttf"],"../node_modules/font-awesome/fonts/fontawesome-webfont.ttf"],"./..\\fonts\\fontawesome-webfont.svg":[["fontawesome-webfont.9ab71dbb.svg","../node_modules/font-awesome/fonts/fontawesome-webfont.svg"],"../node_modules/font-awesome/fonts/fontawesome-webfont.svg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/index-footer.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Footer =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Footer, _Component);
+
+  function Footer() {
+    _classCallCheck(this, Footer);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Footer).apply(this, arguments));
+  }
+
+  _createClass(Footer, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement("footer", {
+        className: "footer"
+      }, _react.default.createElement("div", {
+        className: "container bottom_border"
+      }, _react.default.createElement("div", {
+        className: "row"
+      }, _react.default.createElement("div", {
+        className: " col-sm-4 col-md col-sm-4  col-12 col"
+      }, _react.default.createElement("h5", {
+        className: "headin5_amrc col_white_amrc pt2"
+      }, "Contact us"), _react.default.createElement("p", {
+        className: "mb10"
+      }, "Copyright 2019 \xA9 W.W Coders. All Rights Reserved."), _react.default.createElement("p", null, _react.default.createElement("i", {
+        className: "fa fa-location-arrow"
+      }), " 1600 Amphitheatre Parkway, Mountain View, CA, 94043", " "), _react.default.createElement("p", null, _react.default.createElement("i", {
+        className: "fa fa-phone"
+      }), " +91-9999878398", " "), _react.default.createElement("p", null, _react.default.createElement("i", {
+        className: "fa fa fa-envelope"
+      }), " info@wwcoders.com", " ")), _react.default.createElement("div", {
+        className: " col-sm-4 col-md  col-6 col"
+      }, _react.default.createElement("h5", {
+        className: "headin5_amrc col_white_amrc pt2"
+      }), _react.default.createElement("ul", {
+        className: "footer_ul_amrc"
+      })), _react.default.createElement("div", {
+        className: " col-sm-4 col-md  col-6 col"
+      }), _react.default.createElement("div", {
+        className: " col-sm-4 col-md  col-12 col"
+      }, _react.default.createElement("ul", {
+        className: "footer_ul2_amrc"
+      })))), _react.default.createElement("div", {
+        className: "container"
+      }, _react.default.createElement("ul", {
+        className: "foote_bottom_ul_amrc"
+      }, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/"
+      }, "Home")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/about"
+      }, "About")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/contact"
+      }, "Contact"))), _react.default.createElement("p", {
+        className: "text-center"
+      }, "Copyright @2019 | Designed by", " ", _react.default.createElement("a", {
+        href: "http://localhost:3000/"
+      }, "W.W Coders")), _react.default.createElement("ul", {
+        className: "social_footer_ul"
+      }, _react.default.createElement("li", null, _react.default.createElement("a", {
+        href: "https://twitter.com/the_dempa"
+      }, _react.default.createElement("i", {
+        className: "fa fa-facebook-f"
+      }))), _react.default.createElement("li", null, _react.default.createElement("a", {
+        href: "https://twitter.com/the_dempa"
+      }, _react.default.createElement("i", {
+        className: "fa fa-twitter"
+      }))), _react.default.createElement("li", null, _react.default.createElement("a", {
+        href: "https://www.linkedin.com/in/jananath-banuka-827463124/"
+      }, _react.default.createElement("i", {
+        className: "fa fa-linkedin"
+      }))), _react.default.createElement("li", null, _react.default.createElement("a", {
+        href: "https://www.instagram.com/jananathbanuka/"
+      }, _react.default.createElement("i", {
+        className: "fa fa-instagram"
+      })))))));
+    }
+  }]);
+
+  return Footer;
+}(_react.Component);
+
+exports.default = Footer;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"../node_modules/classnames/index.js":[function(require,module,exports) {
 var define;
 /*!
   Copyright (c) 2017 Jed Watson.
@@ -31895,7 +32011,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = Paragraph;
-},{"react":"../node_modules/react/index.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css"}],"components/index-footer.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css"}],"components/index-CarouselCardsParagraphFooter.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31906,6 +32022,20 @@ exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
+
+require("bootstrap/dist/css/bootstrap.css");
+
+require("../../node_modules/font-awesome/css/font-awesome.min.css");
+
+var _indexFooter = _interopRequireDefault(require("./index-footer"));
+
+var _indexCarousel = _interopRequireDefault(require("./index-carousel"));
+
+var _indexCards = _interopRequireDefault(require("./index-cards"));
+
+var _indexParagraph = _interopRequireDefault(require("./index-paragraph"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -31927,91 +32057,143 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var Footer =
+var Navbar =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(Footer, _Component);
+  _inherits(Navbar, _Component);
 
-  function Footer() {
-    _classCallCheck(this, Footer);
+  function Navbar() {
+    _classCallCheck(this, Navbar);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Footer).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Navbar).apply(this, arguments));
   }
 
-  _createClass(Footer, [{
+  _createClass(Navbar, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement("footer", {
-        className: "footer"
-      }, _react.default.createElement("div", {
-        className: "container bottom_border"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: " col-sm-4 col-md col-sm-4  col-12 col"
-      }, _react.default.createElement("h5", {
-        className: "headin5_amrc col_white_amrc pt2"
-      }, "Contact us"), _react.default.createElement("p", {
-        className: "mb10"
-      }, "Copyright 2019 \xA9 W.W Coders. All Rights Reserved."), _react.default.createElement("p", null, _react.default.createElement("i", {
-        className: "fa fa-location-arrow"
-      }), " 1600 Amphitheatre Parkway, Mountain View, CA, 94043", " "), _react.default.createElement("p", null, _react.default.createElement("i", {
-        className: "fa fa-phone"
-      }), " +91-9999878398", " "), _react.default.createElement("p", null, _react.default.createElement("i", {
-        className: "fa fa fa-envelope"
-      }), " info@wwcoders.com", " ")), _react.default.createElement("div", {
-        className: " col-sm-4 col-md  col-6 col"
-      }, _react.default.createElement("h5", {
-        className: "headin5_amrc col_white_amrc pt2"
-      }), _react.default.createElement("ul", {
-        className: "footer_ul_amrc"
-      })), _react.default.createElement("div", {
-        className: " col-sm-4 col-md  col-6 col"
-      }), _react.default.createElement("div", {
-        className: " col-sm-4 col-md  col-12 col"
-      }, _react.default.createElement("ul", {
-        className: "footer_ul2_amrc"
-      })))), _react.default.createElement("div", {
-        className: "container"
-      }, _react.default.createElement("ul", {
-        className: "foote_bottom_ul_amrc"
-      }, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/"
-      }, "Home")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/about"
-      }, "About")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/contact"
-      }, "Contact"))), _react.default.createElement("p", {
-        className: "text-center"
-      }, "Copyright @2019 | Designed by", " ", _react.default.createElement("a", {
-        href: "http://localhost:3000/"
-      }, "W.W Coders")), _react.default.createElement("ul", {
-        className: "social_footer_ul"
-      }, _react.default.createElement("li", null, _react.default.createElement("a", {
-        href: "https://twitter.com/the_dempa"
-      }, _react.default.createElement("i", {
-        className: "fa fa-facebook-f"
-      }))), _react.default.createElement("li", null, _react.default.createElement("a", {
-        href: "https://twitter.com/the_dempa"
-      }, _react.default.createElement("i", {
-        className: "fa fa-twitter"
-      }))), _react.default.createElement("li", null, _react.default.createElement("a", {
-        href: "https://www.linkedin.com/in/jananath-banuka-827463124/"
-      }, _react.default.createElement("i", {
-        className: "fa fa-linkedin"
-      }))), _react.default.createElement("li", null, _react.default.createElement("a", {
-        href: "https://www.instagram.com/jananathbanuka/"
-      }, _react.default.createElement("i", {
-        className: "fa fa-instagram"
-      })))))));
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_indexCarousel.default, null), _react.default.createElement(_indexCards.default, null), _react.default.createElement("br", null), _react.default.createElement(_indexParagraph.default, null), _react.default.createElement(_indexFooter.default, null));
     }
   }]);
 
-  return Footer;
+  return Navbar;
 }(_react.Component);
 
-exports.default = Footer;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"AppContainer.jsx":[function(require,module,exports) {
+exports.default = Navbar;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css","../../node_modules/font-awesome/css/font-awesome.min.css":"../node_modules/font-awesome/css/font-awesome.min.css","./index-footer":"components/index-footer.jsx","./index-carousel":"components/index-carousel.jsx","./index-cards":"components/index-cards.jsx","./index-paragraph":"components/index-paragraph.jsx"}],"components/instructor-login-form.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var InstructorLoginForm =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(InstructorLoginForm, _Component);
+
+  function InstructorLoginForm() {
+    _classCallCheck(this, InstructorLoginForm);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(InstructorLoginForm).apply(this, arguments));
+  }
+
+  _createClass(InstructorLoginForm, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "container h-100",
+        style: {
+          marginTop: 100
+        }
+      }, _react.default.createElement("div", {
+        className: "d-flex justify-content-center h-100"
+      }, _react.default.createElement("div", {
+        className: "user_card"
+      }, _react.default.createElement("div", {
+        className: "d-flex justify-content-center"
+      }, _react.default.createElement("div", {
+        className: "brand_logo_container"
+      }, _react.default.createElement("img", {
+        src: "https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png",
+        className: "brand_logo",
+        alt: "Logo"
+      }))), _react.default.createElement("div", {
+        className: "d-flex justify-content-center form_container"
+      }, _react.default.createElement("form", null, _react.default.createElement("div", {
+        className: "input-group mb-3"
+      }, _react.default.createElement("div", {
+        className: "input-group-append"
+      }, _react.default.createElement("span", {
+        className: "input-group-text"
+      }, _react.default.createElement("i", {
+        className: "fa fa-user"
+      }))), _react.default.createElement("input", {
+        type: "text",
+        name: "",
+        className: "form-control input_user",
+        placeholder: "username"
+      })), _react.default.createElement("div", {
+        className: "input-group mb-2"
+      }, _react.default.createElement("div", {
+        className: "input-group-append"
+      }, _react.default.createElement("span", {
+        className: "input-group-text"
+      }, _react.default.createElement("i", {
+        className: "fa fa-lock"
+      }))), _react.default.createElement("input", {
+        type: "password",
+        name: "",
+        className: "form-control input_user",
+        placeholder: "password"
+      })), _react.default.createElement("div", {
+        className: "form-group"
+      }, _react.default.createElement("div", {
+        className: "custom-control custom-checkbox"
+      }, _react.default.createElement("input", {
+        type: "checkbox",
+        className: "custom-control-input",
+        id: "customControlInline"
+      }), _react.default.createElement("label", {
+        className: "custom-control-label",
+        htmlFor: "customControlInline"
+      }, "Remember me"))))), _react.default.createElement("div", {
+        className: "d-flex justify-content-center mt-3 login_container"
+      }, _react.default.createElement("button", {
+        type: "button",
+        name: "button",
+        className: "btn login_btn"
+      }, "Login")))));
+    }
+  }]);
+
+  return InstructorLoginForm;
+}(_react.Component);
+
+exports.default = InstructorLoginForm;
+},{"react":"../node_modules/react/index.js"}],"AppContainer.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32027,13 +32209,9 @@ require("bootstrap/dist/css/bootstrap.css");
 
 require("../node_modules/font-awesome/css/font-awesome.min.css");
 
-var _indexCarousel = _interopRequireDefault(require("./components/index-carousel"));
+var _indexCarouselCardsParagraphFooter = _interopRequireDefault(require("./components/index-CarouselCardsParagraphFooter"));
 
-var _indexCards = _interopRequireDefault(require("./components/index-cards"));
-
-var _indexParagraph = _interopRequireDefault(require("./components/index-paragraph"));
-
-var _indexFooter = _interopRequireDefault(require("./components/index-footer"));
+var _instructorLoginForm = _interopRequireDefault(require("./components/instructor-login-form"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32062,37 +32240,22 @@ var App =
 function (_Component) {
   _inherits(App, _Component);
 
-  function App() {
+  function App(props) {
+    var _this;
+
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(App).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
+    _this.state = {
+      loginClicked: false
+    };
+    return _this;
   }
 
   _createClass(App, [{
-    key: "showLoginOrProfileButtons",
-    value: function showLoginOrProfileButtons() {
-      var x = 10;
-
-      if (x < 20) {
-        return _react.default.createElement(_reactRouterDom.Link, {
-          to: "/login",
-          className: "btn btn-info btn-sm"
-        }, " ", "Login ", _react.default.createElement("span", {
-          className: "fa fa-sign-in"
-        }));
-      } else {
-        return _react.default.createElement(_reactRouterDom.Link, {
-          to: "/login",
-          className: "btn btn-info btn-sm"
-        }, " ", "Signup ", _react.default.createElement("span", {
-          className: "fa fa-sign-in"
-        }));
-      }
-    }
-  }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement("nav", {
+      return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement("div", null, _react.default.createElement("nav", {
         className: "navbar navbar-expand-md navbar-dark bg-dark"
       }, _react.default.createElement("div", {
         className: "navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2"
@@ -32141,7 +32304,19 @@ function (_Component) {
         className: "navbar-nav ml-auto"
       }, _react.default.createElement("li", {
         className: "nav-item"
-      }, this.showLoginOrProfileButtons())))), _react.default.createElement(_indexCarousel.default, null), _react.default.createElement(_indexCards.default, null), _react.default.createElement("br", null), _react.default.createElement(_indexParagraph.default, null), _react.default.createElement(_indexFooter.default, null));
+      }, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/login",
+        className: "btn btn-info btn-sm"
+      }, " ", "Login ", _react.default.createElement("i", {
+        className: "fa fa-sign-in"
+      }))))))), _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/",
+        component: _indexCarouselCardsParagraphFooter.default
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/login",
+        component: _instructorLoginForm.default
+      })));
     }
   }]);
 
@@ -32149,7 +32324,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css","../node_modules/font-awesome/css/font-awesome.min.css":"../node_modules/font-awesome/css/font-awesome.min.css","./components/index-carousel":"components/index-carousel.jsx","./components/index-cards":"components/index-cards.jsx","./components/index-paragraph":"components/index-paragraph.jsx","./components/index-footer":"components/index-footer.jsx"}],"App.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css","../node_modules/font-awesome/css/font-awesome.min.css":"../node_modules/font-awesome/css/font-awesome.min.css","./components/index-CarouselCardsParagraphFooter":"components/index-CarouselCardsParagraphFooter.jsx","./components/instructor-login-form":"components/instructor-login-form.jsx"}],"App.jsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -32189,7 +32364,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "8607" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "9374" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
