@@ -8,11 +8,15 @@ import Footer from "./index-footer";
 import Carousel from "./index-carousel";
 import Cards from "./index-cards";
 import Paragraph from './index-paragraph';
+import Navbar from  './index-navbar';
 
-export default class Navbar extends Component {
+export default class Homepage extends Component {
   render() {
     return (
       <>
+        {/* show navbar */}
+        <Navbar />
+
         {/* show carousel */}
         <Carousel />
 

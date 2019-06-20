@@ -9,7 +9,7 @@ export default class InstructorProfile extends Component {
   render() {
     return (
       <div>          
-        <h1>Welcome to the profile {this.props.username}</h1>
+        <h1>Welcome to the profile {this.props.match.params.username}</h1>        
       </div>
     );
   }

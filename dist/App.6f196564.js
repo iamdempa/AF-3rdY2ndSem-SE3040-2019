@@ -32011,7 +32011,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = Paragraph;
-},{"react":"../node_modules/react/index.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css"}],"components/index-CarouselCardsParagraphFooter.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css"}],"components/index-navbar.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32022,20 +32022,6 @@ exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
-
-require("bootstrap/dist/css/bootstrap.css");
-
-require("../../node_modules/font-awesome/css/font-awesome.min.css");
-
-var _indexFooter = _interopRequireDefault(require("./index-footer"));
-
-var _indexCarousel = _interopRequireDefault(require("./index-carousel"));
-
-var _indexCards = _interopRequireDefault(require("./index-cards"));
-
-var _indexParagraph = _interopRequireDefault(require("./index-paragraph"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -32071,7 +32057,61 @@ function (_Component) {
   _createClass(Navbar, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_indexCarousel.default, null), _react.default.createElement(_indexCards.default, null), _react.default.createElement("br", null), _react.default.createElement(_indexParagraph.default, null), _react.default.createElement(_indexFooter.default, null));
+      return _react.default.createElement("nav", {
+        className: "navbar navbar-expand-md navbar-dark bg-dark"
+      }, _react.default.createElement("div", {
+        className: "navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2"
+      }, _react.default.createElement("ul", {
+        className: "navbar-nav mr-auto"
+      }, _react.default.createElement("li", {
+        className: "nav-item"
+      }, _react.default.createElement("a", {
+        href: "/"
+      }, _react.default.createElement("img", {
+        src: "http://placehold.it/50x40?",
+        alt: ""
+      }))), _react.default.createElement("li", {
+        className: "nav-item active",
+        style: {
+          marginLeft: 10
+        }
+      }, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/",
+        className: "nav-link"
+      }, "Home")), _react.default.createElement("li", {
+        className: "nav-item",
+        style: {
+          marginLeft: 10
+        }
+      }, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/about",
+        className: "nav-link"
+      }, "About")), _react.default.createElement("li", {
+        className: "nav-item"
+      }, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/contact",
+        className: "nav-link"
+      }, " ", "Contact Us")))), _react.default.createElement("div", {
+        className: "mx-auto order-0"
+      }, _react.default.createElement("button", {
+        className: "navbar-toggler",
+        type: "button",
+        "data-toggle": "collapse",
+        "data-target": ".dual-collapse2"
+      }, _react.default.createElement("span", {
+        className: "navbar-toggler-icon"
+      }))), _react.default.createElement("div", {
+        className: "navbar-collapse collapse w-100 order-3 dual-collapse2"
+      }, _react.default.createElement("ul", {
+        className: "navbar-nav ml-auto"
+      }, _react.default.createElement("li", {
+        className: "nav-item"
+      }, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/login",
+        className: "btn btn-info btn-sm"
+      }, " ", "Login ", _react.default.createElement("i", {
+        className: "fa fa-sign-in"
+      }))))));
     }
   }]);
 
@@ -32079,7 +32119,77 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = Navbar;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css","../../node_modules/font-awesome/css/font-awesome.min.css":"../node_modules/font-awesome/css/font-awesome.min.css","./index-footer":"components/index-footer.jsx","./index-carousel":"components/index-carousel.jsx","./index-cards":"components/index-cards.jsx","./index-paragraph":"components/index-paragraph.jsx"}],"components/instructor-profile.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/index-homepage.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+require("bootstrap/dist/css/bootstrap.css");
+
+require("../../node_modules/font-awesome/css/font-awesome.min.css");
+
+var _indexFooter = _interopRequireDefault(require("./index-footer"));
+
+var _indexCarousel = _interopRequireDefault(require("./index-carousel"));
+
+var _indexCards = _interopRequireDefault(require("./index-cards"));
+
+var _indexParagraph = _interopRequireDefault(require("./index-paragraph"));
+
+var _indexNavbar = _interopRequireDefault(require("./index-navbar"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Homepage =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Homepage, _Component);
+
+  function Homepage() {
+    _classCallCheck(this, Homepage);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Homepage).apply(this, arguments));
+  }
+
+  _createClass(Homepage, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_indexNavbar.default, null), _react.default.createElement(_indexCarousel.default, null), _react.default.createElement(_indexCards.default, null), _react.default.createElement("br", null), _react.default.createElement(_indexParagraph.default, null), _react.default.createElement(_indexFooter.default, null));
+    }
+  }]);
+
+  return Homepage;
+}(_react.Component);
+
+exports.default = Homepage;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css","../../node_modules/font-awesome/css/font-awesome.min.css":"../node_modules/font-awesome/css/font-awesome.min.css","./index-footer":"components/index-footer.jsx","./index-carousel":"components/index-carousel.jsx","./index-cards":"components/index-cards.jsx","./index-paragraph":"components/index-paragraph.jsx","./index-navbar":"components/index-navbar.jsx"}],"components/instructor-profile.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32123,7 +32233,7 @@ function (_Component) {
   _createClass(InstructorProfile, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Welcome to the profile ", this.props.username));
+      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Welcome to the profile ", this.props.match.params.username));
     }
   }]);
 
@@ -32361,10 +32471,10 @@ function (_Component) {
           }));
         }
       }), _react.default.createElement(_reactRouterDom.Route, {
-        path: "/instructor/:instructorId",
+        path: "/instructor/:username",
         render: function render(props) {
           return _react.default.createElement(_instructorProfile.default, _extends({}, props, {
-            username: _this2.state.username
+            username: props.match.params.username
           }));
         }
       })));
@@ -32391,9 +32501,11 @@ require("bootstrap/dist/css/bootstrap.css");
 
 require("../node_modules/font-awesome/css/font-awesome.min.css");
 
-var _indexCarouselCardsParagraphFooter = _interopRequireDefault(require("./components/index-CarouselCardsParagraphFooter"));
+var _indexHomepage = _interopRequireDefault(require("./components/index-homepage"));
 
 var _instructorLoginForm = _interopRequireDefault(require("./components/instructor-login-form"));
+
+var _instructorProfile = _interopRequireDefault(require("./components/instructor-profile"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32437,67 +32549,18 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement("div", null, _react.default.createElement("nav", {
-        className: "navbar navbar-expand-md navbar-dark bg-dark"
-      }, _react.default.createElement("div", {
-        className: "navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2"
-      }, _react.default.createElement("ul", {
-        className: "navbar-nav mr-auto"
-      }, _react.default.createElement("li", {
-        className: "nav-item"
-      }, _react.default.createElement("a", {
-        href: "/"
-      }, _react.default.createElement("img", {
-        src: "http://placehold.it/50x40?",
-        alt: ""
-      }))), _react.default.createElement("li", {
-        className: "nav-item active",
-        style: {
-          marginLeft: 10
-        }
-      }, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/",
-        className: "nav-link"
-      }, "Home")), _react.default.createElement("li", {
-        className: "nav-item",
-        style: {
-          marginLeft: 10
-        }
-      }, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/about",
-        className: "nav-link"
-      }, "About")), _react.default.createElement("li", {
-        className: "nav-item"
-      }, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/contact",
-        className: "nav-link"
-      }, " ", "Contact Us")))), _react.default.createElement("div", {
-        className: "mx-auto order-0"
-      }, _react.default.createElement("button", {
-        className: "navbar-toggler",
-        type: "button",
-        "data-toggle": "collapse",
-        "data-target": ".dual-collapse2"
-      }, _react.default.createElement("span", {
-        className: "navbar-toggler-icon"
-      }))), _react.default.createElement("div", {
-        className: "navbar-collapse collapse w-100 order-3 dual-collapse2"
-      }, _react.default.createElement("ul", {
-        className: "navbar-nav ml-auto"
-      }, _react.default.createElement("li", {
-        className: "nav-item"
-      }, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/login",
-        className: "btn btn-info btn-sm"
-      }, " ", "Login ", _react.default.createElement("i", {
-        className: "fa fa-sign-in"
-      }))))))), _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
+      return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
         exact: true,
         path: "/",
-        component: _indexCarouselCardsParagraphFooter.default
+        render: function render(props) {
+          return _react.default.createElement(_indexHomepage.default, props);
+        }
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/login",
         component: _instructorLoginForm.default
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/instructor/:username",
+        component: _instructorProfile.default
       })));
     }
   }]);
@@ -32506,7 +32569,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css","../node_modules/font-awesome/css/font-awesome.min.css":"../node_modules/font-awesome/css/font-awesome.min.css","./components/index-CarouselCardsParagraphFooter":"components/index-CarouselCardsParagraphFooter.jsx","./components/instructor-login-form":"components/instructor-login-form.jsx"}],"App.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css","../node_modules/font-awesome/css/font-awesome.min.css":"../node_modules/font-awesome/css/font-awesome.min.css","./components/index-homepage":"components/index-homepage.jsx","./components/instructor-login-form":"components/instructor-login-form.jsx","./components/instructor-profile":"components/instructor-profile.jsx"}],"App.jsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -32546,7 +32609,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2343" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3823" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

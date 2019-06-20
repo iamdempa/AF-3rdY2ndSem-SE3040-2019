@@ -4,7 +4,6 @@ import InstructorProfile from "./instructor-profile";
 import InstructorLoginFormComponent from "./instructor-login-form-component";
 
 export default class InstructorLoginForm extends Component {
-
   constructor(props) {
     super(props);
 
@@ -30,9 +29,9 @@ export default class InstructorLoginForm extends Component {
     });
   }
 
-  handleOnClick (e){
+  handleOnClick(e) {
     e.preventDefault();
-    this.props.history.push(`/instructor/${this.state.username}`);    
+    this.props.history.push(`/instructor/${this.state.username}`);
   }
 
   render() {
@@ -45,21 +44,19 @@ export default class InstructorLoginForm extends Component {
             render={props => (
               <InstructorLoginFormComponent
                 {...props}
-                username = {this.state.username}
-                onChangeUsername = {this.onChangeUsername}
-                password = {this.state.password}
-                onChangePassword = {this.onChangePassword}
-                handleOnClick = {this.handleOnClick}                                
+                username={this.state.username}
+                onChangeUsername={this.onChangeUsername}
+                password={this.state.password}
+                onChangePassword={this.onChangePassword}
+                handleOnClick={this.handleOnClick}
               />
             )}
           />
+
           <Route
-            path={"/instructor/:instructorId"}
+            path={"/instructor/:username"}
             render={props => (
-              <InstructorProfile 
-              {...props}
-              username = { this.state.username }
-              />
+              <InstructorProfile {...props} username={props.match.params.username} />
             )}
           />
         </Switch>
