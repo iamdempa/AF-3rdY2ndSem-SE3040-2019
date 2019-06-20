@@ -32057,7 +32057,7 @@ function (_Component) {
   _createClass(Navbar, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("nav", {
+      return _react.default.createElement("div", null, _react.default.createElement("nav", {
         className: "navbar navbar-expand-md navbar-dark bg-dark"
       }, _react.default.createElement("div", {
         className: "navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2"
@@ -32111,7 +32111,7 @@ function (_Component) {
         className: "btn btn-info btn-sm"
       }, " ", "Login ", _react.default.createElement("i", {
         className: "fa fa-sign-in"
-      }))))));
+      })))))));
     }
   }]);
 
@@ -32253,6 +32253,10 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
+var _indexHomepage = _interopRequireDefault(require("./index-homepage"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -32273,32 +32277,21 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var InstructorLoginFormComponent =
+var InstructorLoginComponent =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(InstructorLoginFormComponent, _Component);
+  _inherits(InstructorLoginComponent, _Component);
 
-  function InstructorLoginFormComponent(props) {
-    _classCallCheck(this, InstructorLoginFormComponent);
+  function InstructorLoginComponent() {
+    _classCallCheck(this, InstructorLoginComponent);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(InstructorLoginFormComponent).call(this, props));
+    return _possibleConstructorReturn(this, _getPrototypeOf(InstructorLoginComponent).apply(this, arguments));
   }
 
-  _createClass(InstructorLoginFormComponent, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      console.log(this.props);
-    }
-  }, {
-    key: "handleOnClick",
-    value: function handleOnClick(e) {
-      e.preventDefault();
-      console.log("Hello");
-    }
-  }, {
+  _createClass(InstructorLoginComponent, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", {
+      return _react.default.createElement("div", null, _react.default.createElement("div", {
         className: "container h-100",
         style: {
           marginTop: 100
@@ -32308,8 +32301,6 @@ function (_Component) {
       }, _react.default.createElement("div", {
         className: "user_card bg-dark"
       }, _react.default.createElement("div", {
-        className: "d-flex justify-content-center"
-      }), _react.default.createElement("div", {
         className: "d-flex justify-content-center form_container",
         style: {
           marginTop: 0
@@ -32364,15 +32355,15 @@ function (_Component) {
         to: "/instructor/".concat(this.props.username),
         type: "button",
         className: "btn login_btn bg-info"
-      }, "Login")))));
+      }, "Login"))))));
     }
   }]);
 
-  return InstructorLoginFormComponent;
+  return InstructorLoginComponent;
 }(_react.Component);
 
-exports.default = InstructorLoginFormComponent;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/instructor-login-form.jsx":[function(require,module,exports) {
+exports.default = InstructorLoginComponent;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./index-homepage":"components/index-homepage.jsx"}],"components/instructor-login-form.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32609,7 +32600,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3823" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "11151" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
