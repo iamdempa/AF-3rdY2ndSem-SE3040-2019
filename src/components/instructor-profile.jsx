@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import InstructorProfileHome from "./instructor-profile-home";
+import AcceptCourses from './instructor-accept-courses';
 
 export default class InstructorProfile extends Component {
   constructor(props) {
@@ -6,10 +10,11 @@ export default class InstructorProfile extends Component {
   }
 
   render() {
+    let username = this.props.match.params.username;
     return (
-      <div>
+      <Router>
         <nav className="navbar navbar-expand navbar-dark bg-dark static-top">
-          <a className="navbar-brand mr-1" href="index.html">
+          <a className="navbar-brand mr-1" href={`/instructor/${username}`}>
             W.W Coders | {this.props.match.params.username}
           </a>
 
@@ -33,24 +38,24 @@ export default class InstructorProfile extends Component {
         <div id="wrapper">
           <ul className="sidebar navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to={`/instructor/${username}`}>
                 <i className="fa fa-home" />
                 <span> Profile</span>
-              </a>
+              </Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to={`/instructor/${username}/accept/course`}>
                 <i className="fa fa-check" />
                 <span> Accept Courses</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
                 <i className="fa fa-plus" />
                 <span> Add Assignment</span>
               </a>
-            </li>            
+            </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
                 <i className="fa fa-plus" />
@@ -59,23 +64,24 @@ export default class InstructorProfile extends Component {
             </li>
           </ul>
 
-          <div id="content-wrapper">
-            <div className="container-fluid">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item">
-                  <a href="index.html">Dashboard</a>
-                </li>
-                <li className="breadcrumb-item active">Blank Page</li>
-              </ol>
+          <Switch>
+            <Route
+              exact
+              path={`/instructor/${username}`}
+              render={props => <InstructorProfileHome {...props} />}
+            />
 
-              <h1>Blank Page</h1>
-              <hr />
-              <p>This is a great starting point for new custom pages.</p>
-            </div>
-          </div>
+            <Route
+              path={`/instructor/${username}/accept/course`}
+              render={props =>
+              <AcceptCourses 
+              {...props}           
+              username={username}
+              />}
+            />
+          </Switch>
         </div>
-        
-      </div>
+      </Router>
     );
   }
 }
