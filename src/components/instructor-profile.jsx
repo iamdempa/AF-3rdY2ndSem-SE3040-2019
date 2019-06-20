@@ -12,11 +12,12 @@ export default class InstructorProfile extends Component {
 
     this.state = {
       coursesToAccept: 0
+      
     }
   }
 
   componentDidMount(){
-    axio.get('http://localhost:3000/courseweb/courses')
+    axio.get('http://localhost:4000/courseweb/courses')
     .then((res) => {
       this.setState({
         coursesToAccept: res.data
@@ -28,7 +29,12 @@ export default class InstructorProfile extends Component {
     if(this.state.coursesToAccept <= 0){
       return 0;
     }else{
-      return this.state.coursesToAccept;
+      if(this.state.coursesToAccept < 10){
+        return "0"+this.state.coursesToAccept;
+      }else{
+        return this.state.coursesToAccept;
+      }
+      
     }
   }
 
@@ -74,6 +80,7 @@ export default class InstructorProfile extends Component {
               >
                 <i className="fa fa-check" />
                 <span> Accept Courses </span>
+                <i className="fa fa-bell"></i>
                 <span className="badge badge-danger" style={{fontSize:12}}>{this.getCount()}</span>
               </Link>
             </li>            

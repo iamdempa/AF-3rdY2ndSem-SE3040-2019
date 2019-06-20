@@ -35225,7 +35225,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      _axios.default.get('http://localhost:3000/courseweb/courses').then(function (res) {
+      _axios.default.get('http://localhost:4000/courseweb/courses').then(function (res) {
         _this2.setState({
           coursesToAccept: res.data
         });
@@ -35237,7 +35237,11 @@ function (_Component) {
       if (this.state.coursesToAccept <= 0) {
         return 0;
       } else {
-        return this.state.coursesToAccept;
+        if (this.state.coursesToAccept < 10) {
+          return "0" + this.state.coursesToAccept;
+        } else {
+          return this.state.coursesToAccept;
+        }
       }
     }
   }, {
@@ -35281,7 +35285,9 @@ function (_Component) {
         to: "/instructor/".concat(username, "/accept/course")
       }, _react.default.createElement("i", {
         className: "fa fa-check"
-      }), _react.default.createElement("span", null, " Accept Courses "), _react.default.createElement("span", {
+      }), _react.default.createElement("span", null, " Accept Courses "), _react.default.createElement("i", {
+        className: "fa fa-bell"
+      }), _react.default.createElement("span", {
         className: "badge badge-danger",
         style: {
           fontSize: 12
@@ -35708,7 +35714,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "9285" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "5801" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
