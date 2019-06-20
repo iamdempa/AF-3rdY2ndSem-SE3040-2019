@@ -9,8 +9,7 @@ let InstructorDB = new Schema({
     contactNumber: Number,
     email: String,
     password: String,
-    isEnabaled: Boolean,
-    courses: [{courseID: String}]
+    isEnabaled: Boolean
 });
 
 module.exports = mongoose.model('InstructorDB', InstructorDB, 'InstructorDB');
