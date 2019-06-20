@@ -5,6 +5,8 @@ const Bundler = require("parcel-bundler");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+const InstructorDB = require('./public/DBModels/InstructorDB');
+
 const router = express.Router();
 
 const bundler = new Bundler("./src/index.html");
@@ -37,6 +39,18 @@ app.get("/", function(req, res) {
   res.sendFile("./dist/index.html");
 });
 
-router.route('/instructor/:username').get((req, res) => {
-    
+router.route('/course/add').post((req, res) => {
+  let instructorDB = new InstructorDB(req.body);
+  instructorDB.save().then(bookDB => {
+    res.status(200).send(`${bookDB} Added`);
+  }).catch((err) => {
+    res.status(400).send({message: err});
+  });
+});
+
+router.route('/courses').get((req, res) => {
+  // name of the course database model here
+  InstructorDB.find().count(function(err, count){
+    res.status(200).send(count);
+});
 });

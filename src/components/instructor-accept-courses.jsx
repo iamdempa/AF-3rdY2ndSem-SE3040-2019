@@ -9,7 +9,7 @@ export default class AcceptCourses extends Component {
             <li className="breadcrumb-item">
               <a href={`/instructor/${this.props.username}`}>Home</a>
             </li>
-            <li className="breadcrumb-item active">Blank Page</li>
+            <li className="breadcrumb-item active">Accept Courses</li>
           </ol>
 
           <h1>Accept Courses</h1>

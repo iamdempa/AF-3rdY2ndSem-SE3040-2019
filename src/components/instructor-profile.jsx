@@ -1,12 +1,35 @@
 import React, { Component } from "react";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import axio from 'axios';
 
 import InstructorProfileHome from "./instructor-profile-home";
-import AcceptCourses from './instructor-accept-courses';
+import AcceptCourses from "./instructor-accept-courses";
+import { ok } from "assert";
 
 export default class InstructorProfile extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      coursesToAccept: 0
+    }
+  }
+
+  componentDidMount(){
+    axio.get('http://localhost:3000/courseweb/courses')
+    .then((res) => {
+      this.setState({
+        coursesToAccept: res.data
+      });
+    });
+  }
+
+  getCount(){
+    if(this.state.coursesToAccept <= 0){
+      return 0;
+    }else{
+      return this.state.coursesToAccept;
+    }
   }
 
   render() {
@@ -45,11 +68,16 @@ export default class InstructorProfile extends Component {
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to={`/instructor/${username}/accept/course`}>
+              <Link
+                className="nav-link dropdown"
+                to={`/instructor/${username}/accept/course`}
+              >
                 <i className="fa fa-check" />
-                <span> Accept Courses</span>
+                <span> Accept Courses </span>
+                <span className="badge badge-danger" style={{fontSize:12}}>{this.getCount()}</span>
               </Link>
-            </li>
+            </li>            
+
             <li className="nav-item">
               <a className="nav-link" href="#">
                 <i className="fa fa-plus" />
@@ -73,11 +101,7 @@ export default class InstructorProfile extends Component {
 
             <Route
               path={`/instructor/${username}/accept/course`}
-              render={props =>
-              <AcceptCourses 
-              {...props}           
-              username={username}
-              />}
+              render={props => <AcceptCourses {...props} username={username} />}
             />
           </Switch>
         </div>
