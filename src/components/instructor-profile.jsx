@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import axio from 'axios';
+import axio from "axios";
 
 import InstructorProfileHome from "./instructor-profile-home";
 import AcceptCourses from "./instructor-accept-courses";
-import { ok } from "assert";
+import AddAssignments from "./instructor-add-assignments";
 
 export default class InstructorProfile extends Component {
   constructor(props) {
@@ -12,29 +12,26 @@ export default class InstructorProfile extends Component {
 
     this.state = {
       coursesToAccept: 0
-      
-    }
+    };
   }
 
-  componentDidMount(){
-    axio.get('http://localhost:4000/courseweb/courses')
-    .then((res) => {
+  componentDidMount() {
+    axio.get("http://localhost:4000/courseweb/courses").then(res => {
       this.setState({
         coursesToAccept: res.data
       });
     });
   }
 
-  getCount(){
-    if(this.state.coursesToAccept <= 0){
+  getCount() {
+    if (this.state.coursesToAccept <= 0) {
       return 0;
-    }else{
-      if(this.state.coursesToAccept < 10){
-        return "0"+this.state.coursesToAccept;
-      }else{
+    } else {
+      if (this.state.coursesToAccept < 10) {
+        return "0" + this.state.coursesToAccept;
+      } else {
         return this.state.coursesToAccept;
       }
-      
     }
   }
 
@@ -80,16 +77,21 @@ export default class InstructorProfile extends Component {
               >
                 <i className="fa fa-check" />
                 <span> Accept Courses </span>
-                <i className="fa fa-bell"></i>
-                <span className="badge badge-danger" style={{fontSize:12}}>{this.getCount()}</span>
+                <i className="fa fa-bell" />
+                <span className="badge badge-danger" style={{ fontSize: 12 }}>
+                  {this.getCount()}
+                </span>
               </Link>
-            </li>            
+            </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link
+                className="nav-link"
+                to={`/instructor/${username}/assignment/add`}
+              >
                 <i className="fa fa-plus" />
-                <span> Add Assignment</span>
-              </a>
+                <span> Add Assignement</span>
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
@@ -110,6 +112,12 @@ export default class InstructorProfile extends Component {
               path={`/instructor/${username}/accept/course`}
               render={props => <AcceptCourses {...props} username={username} />}
             />
+
+            <Route
+              path={`/instructor/${username}/assignment/add`}
+              render={props => <AddAssignments {...props} username={username} />}
+            />
+
           </Switch>
         </div>
       </Router>

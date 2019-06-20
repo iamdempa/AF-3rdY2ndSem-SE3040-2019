@@ -27,6 +27,7 @@ export default class App extends Component {
           )} />
           <Route path="/login" component={InstructorLoginForm} />
           <Route path="/instructor/:username" component={InstructorProfile} />
+          <Route path="/instructor/:username/assignment/add" component={InstructorProfile} />
         </Switch>
       </Router>
     );
