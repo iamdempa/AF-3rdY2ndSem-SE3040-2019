@@ -1,13 +1,39 @@
 import React, { Component } from "react";
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
-import Homepage from "./index-homepage";
 
 export default class InstructorLoginComponent extends Component {
   render() {
     return (
       <div>
-
-
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+          <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <a href="/">
+                  <img src="http://placehold.it/50x40?" alt="" />
+                </a>
+              </li>
+              <li className="nav-item active" style={{ marginLeft: 10 }}>
+                <a href="/" className="nav-link">
+                  Home
+                </a>
+              </li>              
+            </ul>
+          </div>
+          <div className="mx-auto order-0">
+            {/* <a className="navbar-brand mx-auto" href="#">
+            Navbar 2
+          </a> */}
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target=".dual-collapse2"
+            >
+              <span className="navbar-toggler-icon" />
+            </button>
+          </div>          
+        </nav>
 
         <div className="container h-100" style={{ marginTop: 100 }}>
           <div className="d-flex justify-content-center h-100">
