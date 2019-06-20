@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "../node_modules/font-awesome/css/font-awesome.min.css";
 
-import homepage from "./components/index-homepage";
 import InstructorLoginForm from "./components/instructor-login-form";
 import InstructorProfile from "./components/instructor-profile";
 import Homepage from "./components/index-homepage";
+import AddAssignment from "./components/instructor-add-assignments";
+import AllAssignments from "./components/instructor-all-assignment";
 
 export default class App extends Component {
   constructor(props) {
@@ -21,13 +22,18 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <Switch>                  
-          <Route exact path="/" render = {props => (
-            <Homepage {...props}/>
-          )} />
+        <Switch>
+          <Route exact path="/" render={props => <Homepage {...props} />} />
           <Route path="/login" component={InstructorLoginForm} />
           <Route path="/instructor/:username" component={InstructorProfile} />
-          <Route path="/instructor/:username/assignment/add" component={InstructorProfile} />
+          <Route
+            path="/instructor/:username/assignment/add"
+            component={AddAssignment}
+          />
+          <Route
+            path={`/instructor/:username/assignments/update`}
+            component={AllAssignments}
+          />
         </Switch>
       </Router>
     );

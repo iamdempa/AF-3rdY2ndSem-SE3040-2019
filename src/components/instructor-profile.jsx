@@ -5,6 +5,7 @@ import axio from "axios";
 import InstructorProfileHome from "./instructor-profile-home";
 import AcceptCourses from "./instructor-accept-courses";
 import AddAssignments from "./instructor-add-assignments";
+import AllAssignments from "./instructor-all-assignment";
 
 export default class InstructorProfile extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ export default class InstructorProfile extends Component {
             id="sidebarToggle"
             href="#"
           >
-            <i className="fa fa-bars" />
+            {/* <i className="fa fa-bars" /> */}
           </button>
 
           <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -93,6 +94,17 @@ export default class InstructorProfile extends Component {
                 <span> Add Assignement</span>
               </Link>
             </li>
+
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                to={`/instructor/${username}/assignments/update`}
+              >
+                <i className="fa fa-pencil" />
+                <span> Update Assignement</span>
+              </Link>
+            </li>
+
             <li className="nav-item">
               <a className="nav-link" href="#">
                 <i className="fa fa-plus" />
@@ -115,9 +127,19 @@ export default class InstructorProfile extends Component {
 
             <Route
               path={`/instructor/${username}/assignment/add`}
-              render={props => <AddAssignments {...props} username={username} />}
+              render={props => (
+                <AddAssignments {...props} username={username} />
+              )}
             />
 
+          
+
+            <Route
+              path={`/instructor/${username}/assignments/update`}
+              render={props => (
+                <AllAssignments {...props} username={username} />
+              )}
+            />
           </Switch>
         </div>
       </Router>

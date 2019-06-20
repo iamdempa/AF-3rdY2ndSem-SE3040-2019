@@ -61,6 +61,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 const InstructorDB = require("./public/DBModels/InstructorDB");
+const AssignmentDB = require('./public/DBModels/AssignmentDb');
 
 const app = express();
 const router = express.Router();
@@ -82,6 +83,7 @@ app.listen(4000, () => {
   console.log("Listening to port 4000");
 });
 
+//add a course - not my part though
 router.route("/course/add").post((req, res) => {
   let instructorDB = new instructorDB(req.body);
   instructorDB
@@ -94,8 +96,19 @@ router.route("/course/add").post((req, res) => {
     });
 });
 
+//get courses to-be accepted count
 router.route("/courses").get((req, res) => {
   InstructorDB.countDocuments({}, function(err, count) {
     res.status(200).send(`${count}`);
+  });
+});
+
+//add an assignment
+router.route('/assignment/add').post((req, res) => {
+  let assignmentDb = new AssignmentDB(req.body);
+  assignmentDb.save().then((assignment) => {
+    res.status(200).send(assignment);
+  }).catch((err) => {
+    res.status(400).send({message: err});
   });
 });
