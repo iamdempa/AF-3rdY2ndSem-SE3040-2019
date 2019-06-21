@@ -2,9 +2,7 @@ import React, { Component } from "react";
 
 export default class AllAssignmentsSubsidory extends Component {
   constructor(props) {
-    super(props);
-
-    
+    super(props);    
   }
 
   render() {

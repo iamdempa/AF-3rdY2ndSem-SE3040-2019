@@ -122,10 +122,11 @@ router.route('/assignments').get((req, res) => {
 });
 
 //get assignment by ID
-router.route('/assignments/:assignmentID').get((req, res) => {
+router.route('/assignments/update/:assignmentID').get((req, res) => {
   let id = req.params.assignmentID;
   AssignmentDB.findById(id, (err, assignment) => {
     if(err) throw err;
+    if(!assignment) return res.status(400).send('No data found');
     res.status(200).send(assignment);
   })
 });

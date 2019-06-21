@@ -4,12 +4,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axio from "axios";
 
-export default class AllAssignments extends Component {
+export default class EditAssignmentDate extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      assignmentDueDate: new Date()
+      assignmentDueDate: new Date(),
+      assignmentObject: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -22,12 +23,30 @@ export default class AllAssignments extends Component {
   }
 
   componentDidMount() {
+    console.log("Component did mount");
     axio
-      .get("http://localhost:4000/courseweb/assignments/:assignmentID")
+      .get(
+        "http://localhost:4000/courseweb/assignments/update/" +
+          this.props.match.params.assignmentID
+      )
       .then(res => {
-          
+        let today = new Date(res.data.assignmentDueDate);
+
+        let datee =
+          parseInt(today.getMonth() + 1) +
+          "/" +
+          today.getDate() +
+          "/" +
+          today.getFullYear();
+
+        var dateString = datee;
+        this.setState({
+            assignmentDueDate: new Date(dateString)
+        });
       })
-      .catch(err => {});
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   onSubmit(e) {

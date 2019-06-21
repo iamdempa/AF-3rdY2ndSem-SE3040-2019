@@ -3,7 +3,7 @@ import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import axio from "axios";
 import EditAssignmentDate from "./instructor-edit-assignment-date";
-import AllAssignmentsSusidory from "./instructor-all-assignment-subsidory";
+import AllAssignmentsSubsidory from "./instructor-all-assignment-subsidory";
 
 const ShowAssignments = props => (
   <tr>
@@ -49,7 +49,7 @@ export default class AllAssignments extends Component {
     // var dateObject = new Date(dateString);
   }
 
-  componentDidMount() {
+  componentDidMount() {    
     axio
       .get("http://localhost:4000/courseweb/assignments")
       .then(res => {
@@ -79,11 +79,12 @@ export default class AllAssignments extends Component {
     return (
       <Router>
         <Switch>
+          
           <Route
             exact
             path={`/instructor/IT17157124/assignments/update`}
             render={props => (
-              <AllAssignmentsSusidory
+              <AllAssignmentsSubsidory
                 {...props}
                 username={this.props.username}
                 getRows={this.getRows()}
@@ -92,8 +93,9 @@ export default class AllAssignments extends Component {
           />
 
           <Route
-            path={`/instructor/IT17157124/assignments/update/:assignmentID`}
-            render={props => <EditAssignmentDate {...props} />}
+            /* path={`/instructor/IT17157124/assignments/update/:assignmentID`} */
+            path='/instructor/IT17157124/assignments/update/:assignmentID'
+            component={EditAssignmentDate}
           />
         </Switch>
       </Router>

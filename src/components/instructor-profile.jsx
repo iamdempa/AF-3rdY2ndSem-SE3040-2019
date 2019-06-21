@@ -6,6 +6,7 @@ import InstructorProfileHome from "./instructor-profile-home";
 import AcceptCourses from "./instructor-accept-courses";
 import AddAssignments from "./instructor-add-assignments";
 import AllAssignments from "./instructor-all-assignment";
+import EditAssignmentDate from './instructor-edit-assignment-date';
 
 export default class InstructorProfile extends Component {
   constructor(props) {
@@ -132,14 +133,18 @@ export default class InstructorProfile extends Component {
               )}
             />
 
-          
-
             <Route
               path={`/instructor/${username}/assignments/update`}
               render={props => (
                 <AllAssignments {...props} username={username} />
               )}
             />
+
+            <Route
+              path={`/instructor/${username}/assignments/update/:assignmentID`}
+              component={EditAssignmentDate}
+            />
+
           </Switch>
         </div>
       </Router>

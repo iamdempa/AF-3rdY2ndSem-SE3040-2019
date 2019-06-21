@@ -45964,26 +45964,27 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var AllAssignments =
+var EditAssignmentDate =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(AllAssignments, _Component);
+  _inherits(EditAssignmentDate, _Component);
 
-  function AllAssignments(props) {
+  function EditAssignmentDate(props) {
     var _this;
 
-    _classCallCheck(this, AllAssignments);
+    _classCallCheck(this, EditAssignmentDate);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(AllAssignments).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditAssignmentDate).call(this, props));
     _this.state = {
-      assignmentDueDate: new Date()
+      assignmentDueDate: new Date(),
+      assignmentObject: []
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
-  _createClass(AllAssignments, [{
+  _createClass(EditAssignmentDate, [{
     key: "handleChange",
     value: function handleChange(date) {
       this.setState({
@@ -45993,7 +45994,21 @@ function (_Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      _axios.default.get("http://localhost:4000/courseweb/assignments/:assignmentID").then(function (res) {}).catch(function (err) {});
+      var _this2 = this;
+
+      console.log("Component did mount");
+
+      _axios.default.get("http://localhost:4000/courseweb/assignments/update/" + this.props.match.params.assignmentID).then(function (res) {
+        var today = new Date(res.data.assignmentDueDate);
+        var datee = parseInt(today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
+        var dateString = datee;
+
+        _this2.setState({
+          assignmentDueDate: new Date(dateString)
+        });
+      }).catch(function (err) {
+        console.log(err);
+      });
     }
   }, {
     key: "onSubmit",
@@ -46015,10 +46030,10 @@ function (_Component) {
     }
   }]);
 
-  return AllAssignments;
+  return EditAssignmentDate;
 }(_react.Component);
 
-exports.default = AllAssignments;
+exports.default = EditAssignmentDate;
 },{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-datepicker":"../node_modules/react-datepicker/es/index.js","react-datepicker/dist/react-datepicker.css":"../node_modules/react-datepicker/dist/react-datepicker.css","axios":"../node_modules/axios/index.js"}],"components/instructor-all-assignment-subsidory.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -46207,11 +46222,11 @@ function (_Component) {
             getRows: _this4.getRows()
           }));
         }
-      }), _react.default.createElement(_reactRouterDom.Route, {
+      }), _react.default.createElement(_reactRouterDom.Route
+      /* path={`/instructor/IT17157124/assignments/update/:assignmentID`} */
+      , {
         path: "/instructor/IT17157124/assignments/update/:assignmentID",
-        render: function render(props) {
-          return _react.default.createElement(_instructorEditAssignmentDate.default, props);
-        }
+        component: _instructorEditAssignmentDate.default
       })));
     }
   }]);
@@ -46241,6 +46256,8 @@ var _instructorAcceptCourses = _interopRequireDefault(require("./instructor-acce
 var _instructorAddAssignments = _interopRequireDefault(require("./instructor-add-assignments"));
 
 var _instructorAllAssignment = _interopRequireDefault(require("./instructor-all-assignment"));
+
+var _instructorEditAssignmentDate = _interopRequireDefault(require("./instructor-edit-assignment-date"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46401,6 +46418,9 @@ function (_Component) {
             username: username
           }));
         }
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/instructor/".concat(username, "/assignments/update/:assignmentID"),
+        component: _instructorEditAssignmentDate.default
       }))));
     }
   }]);
@@ -46409,7 +46429,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = InstructorProfile;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","./instructor-profile-home":"components/instructor-profile-home.jsx","./instructor-accept-courses":"components/instructor-accept-courses.jsx","./instructor-add-assignments":"components/instructor-add-assignments.jsx","./instructor-all-assignment":"components/instructor-all-assignment.jsx"}],"components/instructor-login-form-component.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","./instructor-profile-home":"components/instructor-profile-home.jsx","./instructor-accept-courses":"components/instructor-accept-courses.jsx","./instructor-add-assignments":"components/instructor-add-assignments.jsx","./instructor-all-assignment":"components/instructor-all-assignment.jsx","./instructor-edit-assignment-date":"components/instructor-edit-assignment-date.jsx"}],"components/instructor-login-form-component.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -49247,7 +49267,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "6268" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1415" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
