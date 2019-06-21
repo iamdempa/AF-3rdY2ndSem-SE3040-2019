@@ -45812,16 +45812,6 @@ function (_Component) {
   _createClass(AddAssignment, [{
     key: "handleChange",
     value: function handleChange(date) {
-      var today = date;
-      /* let datee =
-        parseInt(today.getMonth() + 1) +
-        "/" +
-        today.getDate() +
-        "/" +
-        today.getFullYear();
-        var dateString = datee; // Oct 23
-        var dateObject = new Date(dateString); */
-
       this.setState({
         assignmentDueDate: date
       });
@@ -45917,7 +45907,11 @@ function (_Component) {
         className: "form-control",
         selected: this.state.assignmentDueDate,
         onChange: this.handleChange
-      })), _react.default.createElement("button", {
+      })), _react.default.createElement("div", {
+        className: "form-group"
+      }, _react.default.createElement("label", null, "Select Course:"), _react.default.createElement("select", {
+        className: "form-control"
+      }, _react.default.createElement("option", null, "1"), _react.default.createElement("option", null, "2"), _react.default.createElement("option", null, "3"))), _react.default.createElement("button", {
         type: "submit",
         className: "btn btn-primary"
       }, "Submit"))), _react.default.createElement("div", {

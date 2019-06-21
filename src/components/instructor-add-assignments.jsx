@@ -23,20 +23,7 @@ export default class AddAssignment extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  handleChange(date) {
-    let today = date;
-
-    /* let datee =
-      parseInt(today.getMonth() + 1) +
-      "/" +
-      today.getDate() +
-      "/" +
-      today.getFullYear();
-
-    var dateString = datee; // Oct 23
-
-    var dateObject = new Date(dateString); */
-
+  handleChange(date) {    
     this.setState({
       assignmentDueDate: date
     });
@@ -135,6 +122,15 @@ export default class AddAssignment extends Component {
                       selected={this.state.assignmentDueDate}
                       onChange={this.handleChange}
                     />
+                  </div>
+
+                  <div className="form-group">
+                  <label>Select Course:</label>
+                  <select className="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
                   </div>
 
                   <button type="submit" className="btn btn-primary">
