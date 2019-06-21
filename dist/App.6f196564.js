@@ -45936,6 +45936,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
+var _reactDatepicker = _interopRequireDefault(require("react-datepicker"));
+
 require("react-datepicker/dist/react-datepicker.css");
 
 var _axios = _interopRequireDefault(require("axios"));
@@ -45954,9 +45956,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -45968,15 +45970,48 @@ function (_Component) {
   _inherits(AllAssignments, _Component);
 
   function AllAssignments(props) {
+    var _this;
+
     _classCallCheck(this, AllAssignments);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(AllAssignments).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AllAssignments).call(this, props));
+    _this.state = {
+      assignmentDueDate: new Date()
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(AllAssignments, [{
+    key: "handleChange",
+    value: function handleChange(date) {
+      this.setState({
+        assignmentDueDate: date
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      _axios.default.get("http://localhost:4000/courseweb/assignments/:assignmentID").then(function (res) {}).catch(function (err) {});
+    }
+  }, {
+    key: "onSubmit",
+    value: function onSubmit(e) {
+      e.preventDefault();
+    }
+  }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Edit Assignment Date ", this.props.match.params.assignmentID));
+      return _react.default.createElement("div", {
+        className: "container"
+      }, _react.default.createElement("h1", null, "Edit Assignment Date ", this.props.match.params.assignmentID), _react.default.createElement("br", null), _react.default.createElement("form", null, _react.default.createElement("div", {
+        className: "form-group"
+      }, _react.default.createElement("label", null, "Due Date:"), " ", _react.default.createElement(_reactDatepicker.default, {
+        className: "form-control",
+        selected: this.state.assignmentDueDate,
+        onChange: this.handleChange
+      }))));
     }
   }]);
 
@@ -45984,7 +46019,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = AllAssignments;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-datepicker/dist/react-datepicker.css":"../node_modules/react-datepicker/dist/react-datepicker.css","axios":"../node_modules/axios/index.js"}],"components/instructor-all-assignment-subsidory.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-datepicker":"../node_modules/react-datepicker/es/index.js","react-datepicker/dist/react-datepicker.css":"../node_modules/react-datepicker/dist/react-datepicker.css","axios":"../node_modules/axios/index.js"}],"components/instructor-all-assignment-subsidory.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

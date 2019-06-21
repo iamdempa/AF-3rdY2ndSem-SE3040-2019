@@ -120,3 +120,12 @@ router.route('/assignments').get((req, res) => {
     res.status(200).send(assignments);
   });
 });
+
+//get assignment by ID
+router.route('/assignments/:assignmentID').get((req, res) => {
+  let id = req.params.assignmentID;
+  AssignmentDB.findById(id, (err, assignment) => {
+    if(err) throw err;
+    res.status(200).send(assignment);
+  })
+});
