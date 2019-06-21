@@ -4,11 +4,15 @@ import "react-datepicker/dist/react-datepicker.css";
 import axio from "axios";
 
 export default class AllAssignments extends Component {
-  render(){
-      return(
-          <div>
-              <h1>Edit Assignment Date</h1>
-          </div>
-      );
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Edit Assignment Date {this.props.match.params.assignmentID}</h1>
+      </div>
+    );
   }
 }

@@ -45967,16 +45967,16 @@ var AllAssignments =
 function (_Component) {
   _inherits(AllAssignments, _Component);
 
-  function AllAssignments() {
+  function AllAssignments(props) {
     _classCallCheck(this, AllAssignments);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(AllAssignments).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(AllAssignments).call(this, props));
   }
 
   _createClass(AllAssignments, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Edit Assignment Date"));
+      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Edit Assignment Date ", this.props.match.params.assignmentID));
     }
   }]);
 
@@ -46019,10 +46019,10 @@ var AllAssignmentsSubsidory =
 function (_Component) {
   _inherits(AllAssignmentsSubsidory, _Component);
 
-  function AllAssignmentsSubsidory() {
+  function AllAssignmentsSubsidory(props) {
     _classCallCheck(this, AllAssignmentsSubsidory);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(AllAssignmentsSubsidory).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(AllAssignmentsSubsidory).call(this, props));
   }
 
   _createClass(AllAssignmentsSubsidory, [{
