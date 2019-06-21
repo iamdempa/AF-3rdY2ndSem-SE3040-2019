@@ -46042,7 +46042,9 @@ function (_Component) {
         className: "breadcrumb-item active"
       }, "Update Assignment")), _react.default.createElement("h1", null, "Update Assignments"), _react.default.createElement("hr", null), _react.default.createElement("p", null, "Update due dates of Assignments"), _react.default.createElement("br", null), _react.default.createElement("table", {
         className: "table table-striped"
-      }, _react.default.createElement("thead", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, "Assignment Name"), _react.default.createElement("th", null, "Assignment Description"), _react.default.createElement("th", null, "Course Name"), _react.default.createElement("th", null, "Due Date"))), _react.default.createElement("tbody", null, this.getRows()))));
+      }, _react.default.createElement("thead", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, "Assignment Name"), _react.default.createElement("th", null, "Assignment Description"), _react.default.createElement("th", null, "Course Name"), _react.default.createElement("th", null, _react.default.createElement("small", {
+        className: "form-text text-muted"
+      }, "Click on a date to extend the due date"), "Due Date"))), _react.default.createElement("tbody", null, this.getRows()))));
     }
   }]);
 

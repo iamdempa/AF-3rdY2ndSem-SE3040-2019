@@ -10,7 +10,7 @@ const ShowAssignments = props => (
     <td>{props.assignment.courseName}</td>
     <td>
       <Link
-        to={`/instructor/IT17157124/assignments/update/${props.assignment._id}`}
+        to={`/instructor/IT17157124/assignments/update/${props.assignment._id}`}        
       >
         {props.convertedDate}
       </Link>
@@ -58,16 +58,18 @@ export default class AllAssignments extends Component {
       .catch(err => {
         console.log(err);
       });
+      
   }
 
   getRows() {
+    
     if (!this.state.allAssignments && !this.state.allAssignments.length)
       return null;
     return this.state.allAssignments.map((currentAssignment, id) => {
       return (
         <ShowAssignments
           assignment={currentAssignment}
-          key={id}
+          key={id}          
           convertedDate={this.convertDateToString(
             currentAssignment.assignmentDueDate
           )}
@@ -96,7 +98,13 @@ export default class AllAssignments extends Component {
                 <th>Assignment Name</th>
                 <th>Assignment Description</th>
                 <th>Course Name</th>
-                <th>Due Date</th>
+                <th>
+                <small className="form-text text-muted">
+                    Click on a date to extend the due date
+                  </small>
+                  Due Date
+                  
+                </th>
               </tr>
             </thead>
             <tbody>{this.getRows()}</tbody>
