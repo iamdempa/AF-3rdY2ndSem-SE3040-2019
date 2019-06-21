@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import axio from "axios";
+import EditAssignmentDate from "./instructor-edit-assignment-date";
+import AllAssignmentsSusidory from "./instructor-all-assignment-subsidory";
 
 const ShowAssignments = props => (
   <tr>
@@ -10,7 +12,7 @@ const ShowAssignments = props => (
     <td>{props.assignment.courseName}</td>
     <td>
       <Link
-        to={`/instructor/IT17157124/assignments/update/${props.assignment._id}`}        
+        to={`/instructor/IT17157124/assignments/update/${props.assignment._id}`}
       >
         {props.convertedDate}
       </Link>
@@ -58,18 +60,14 @@ export default class AllAssignments extends Component {
       .catch(err => {
         console.log(err);
       });
-      
   }
 
-  getRows() {
-    
-    if (!this.state.allAssignments && !this.state.allAssignments.length)
-      return null;
+  getRows() {    
     return this.state.allAssignments.map((currentAssignment, id) => {
       return (
         <ShowAssignments
           assignment={currentAssignment}
-          key={id}          
+          key={id}
           convertedDate={this.convertDateToString(
             currentAssignment.assignmentDueDate
           )}
@@ -79,38 +77,26 @@ export default class AllAssignments extends Component {
   }
   render() {
     return (
-      <div id="content-wrapper">
-        <div className="container-fluid">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <a href={`/instructor/${this.props.username}`}>Home</a>
-            </li>
-            <li className="breadcrumb-item active">Update Assignment</li>
-          </ol>
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path={`/instructor/IT17157124/assignments/update`}
+            render={props => (
+              <AllAssignmentsSusidory
+                {...props}
+                username={this.props.username}
+                getRows={this.getRows()}
+              />
+            )}
+          />
 
-          <h1>Update Assignments</h1>
-          <hr />
-          <p>Update due dates of Assignments</p>
-          <br />
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th>Assignment Name</th>
-                <th>Assignment Description</th>
-                <th>Course Name</th>
-                <th>
-                <small className="form-text text-muted">
-                    Click on a date to extend the due date
-                  </small>
-                  Due Date
-                  
-                </th>
-              </tr>
-            </thead>
-            <tbody>{this.getRows()}</tbody>
-          </table>
-        </div>
-      </div>
+          <Route
+            path={`/instructor/IT17157124/assignments/update/:assignmentID`}
+            render={props => <EditAssignmentDate {...props} />}
+          />
+        </Switch>
+      </Router>
     );
   }
 }

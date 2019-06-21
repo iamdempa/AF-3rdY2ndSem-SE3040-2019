@@ -9,6 +9,7 @@ import InstructorProfile from "./components/instructor-profile";
 import Homepage from "./components/index-homepage";
 import AddAssignment from "./components/instructor-add-assignments";
 import AllAssignments from "./components/instructor-all-assignment";
+import EditAssignmentDate from './components/instructor-edit-assignment-date';
 
 export default class App extends Component {
   constructor(props) {
@@ -33,6 +34,11 @@ export default class App extends Component {
           <Route
             path={`/instructor/:username/assignments/update`}
             component={AllAssignments}
+          />
+
+          <Route
+            path={`/instructor/:username/assignments/update/:assignmentID`}
+            component={EditAssignmentDate}
           />
         </Switch>
       </Router>
