@@ -112,3 +112,11 @@ router.route('/assignment/add').post((req, res) => {
     res.status(400).send({message: err});
   });
 });
+
+//get all assignments
+router.route('/assignments').get((req, res) => {
+  AssignmentDB.find((err, assignments) => {
+    if(err) throw err;
+    res.status(200).send(assignments);
+  });
+});

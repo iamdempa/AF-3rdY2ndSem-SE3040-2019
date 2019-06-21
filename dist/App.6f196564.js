@@ -45940,7 +45940,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactDatepicker = _interopRequireDefault(require("react-datepicker"));
+var _reactRouterDom = require("react-router-dom");
 
 require("react-datepicker/dist/react-datepicker.css");
 
@@ -45968,18 +45968,70 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+var ShowAssignments = function ShowAssignments(props) {
+  return _react.default.createElement("tr", null, _react.default.createElement("td", null, props.assignment.assignmentName), _react.default.createElement("td", null, props.assignment.assignmentDescription), _react.default.createElement("td", null, props.assignment.courseName), _react.default.createElement("td", null, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/instructor/IT17157124/assignments/update/".concat(props.assignment._id)
+  }, props.convertedDate)));
+};
+
 var AllAssignments =
 /*#__PURE__*/
 function (_Component) {
   _inherits(AllAssignments, _Component);
 
   function AllAssignments(props) {
+    var _this;
+
     _classCallCheck(this, AllAssignments);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(AllAssignments).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AllAssignments).call(this, props));
+    _this.state = {
+      assignmentName: "",
+      assignmentDescription: "",
+      courseName: "",
+      assignmentDueDate: "",
+      allAssignments: []
+    };
+    return _this;
   }
 
   _createClass(AllAssignments, [{
+    key: "convertDateToString",
+    value: function convertDateToString(date) {
+      var today = new Date(date);
+      var datee = parseInt(today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
+      var dateString = datee; // Oct 23
+
+      return dateString; // var dateObject = new Date(dateString);
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      _axios.default.get("http://localhost:4000/courseweb/assignments").then(function (res) {
+        _this2.setState({
+          allAssignments: res.data
+        });
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  }, {
+    key: "getRows",
+    value: function getRows() {
+      var _this3 = this;
+
+      if (!this.state.allAssignments && !this.state.allAssignments.length) return null;
+      return this.state.allAssignments.map(function (currentAssignment, id) {
+        return _react.default.createElement(ShowAssignments, {
+          assignment: currentAssignment,
+          key: id,
+          convertedDate: _this3.convertDateToString(currentAssignment.assignmentDueDate)
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", {
@@ -45994,7 +46046,9 @@ function (_Component) {
         href: "/instructor/".concat(this.props.username)
       }, "Home")), _react.default.createElement("li", {
         className: "breadcrumb-item active"
-      }, "Update Assignment")), _react.default.createElement("h1", null, "Update Assignments"), _react.default.createElement("hr", null), _react.default.createElement("p", null, "Update due dates of Assignments"), _react.default.createElement("br", null)));
+      }, "Update Assignment")), _react.default.createElement("h1", null, "Update Assignments"), _react.default.createElement("hr", null), _react.default.createElement("p", null, "Update due dates of Assignments"), _react.default.createElement("br", null), _react.default.createElement("table", {
+        className: "table table-striped"
+      }, _react.default.createElement("thead", null, _react.default.createElement("tr", null, _react.default.createElement("th", null, "Assignment Name"), _react.default.createElement("th", null, "Assignment Description"), _react.default.createElement("th", null, "Course Name"), _react.default.createElement("th", null, "Due Date"))), _react.default.createElement("tbody", null, this.getRows()))));
     }
   }]);
 
@@ -46002,7 +46056,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = AllAssignments;
-},{"react":"../node_modules/react/index.js","react-datepicker":"../node_modules/react-datepicker/es/index.js","react-datepicker/dist/react-datepicker.css":"../node_modules/react-datepicker/dist/react-datepicker.css","axios":"../node_modules/axios/index.js"}],"components/instructor-profile.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-datepicker/dist/react-datepicker.css":"../node_modules/react-datepicker/dist/react-datepicker.css","axios":"../node_modules/axios/index.js"}],"components/instructor-profile.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -49024,7 +49078,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "11296" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "8612" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
