@@ -49,7 +49,7 @@ export default class AllAssignments extends Component {
     // var dateObject = new Date(dateString);
   }
 
-  componentDidMount() {    
+  componentDidMount() {
     axio
       .get("http://localhost:4000/courseweb/assignments")
       .then(res => {
@@ -62,7 +62,7 @@ export default class AllAssignments extends Component {
       });
   }
 
-  getRows() {    
+  getRows() {
     return this.state.allAssignments.map((currentAssignment, id) => {
       return (
         <ShowAssignments
@@ -79,7 +79,7 @@ export default class AllAssignments extends Component {
     return (
       <Router>
         <Switch>
-          
+
           <Route
             exact
             path={`/instructor/IT17157124/assignments/update`}
@@ -92,10 +92,14 @@ export default class AllAssignments extends Component {
             )}
           />
 
-          <Route
-            /* path={`/instructor/IT17157124/assignments/update/:assignmentID`} */
-            path='/instructor/IT17157124/assignments/update/:assignmentID'
-            component={EditAssignmentDate}
+          <Route                      
+            path="/instructor/IT17157124/assignments/update/:assignmentID"
+            render={props => (
+              <EditAssignmentDate
+                {...props}
+                username={this.props.username}               
+              />
+            )}
           />
         </Switch>
       </Router>

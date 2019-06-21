@@ -3,6 +3,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axio from "axios";
 
+const ShowCourseName = props => (
+  <option value={props.course.name}>{props.course.name}</option>
+);
+
 export default class AddAssignment extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +16,13 @@ export default class AddAssignment extends Component {
       assignmentDescription: "",
       courseName: "",
       assignmentDueDate: new Date(),
-      isNewAssignment: false
+      isNewAssignment: false,
+      coursesArray: [],
+      red: "red",
+      green: "green",
+      color: "",
+      message: "",
+      todayDate: new Date()
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,9 +31,10 @@ export default class AddAssignment extends Component {
       this
     );
     this.onSubmit = this.onSubmit.bind(this);
+    this.onChangeCourseName = this.onChangeCourseName.bind(this);
   }
 
-  handleChange(date) {    
+  handleChange(date) {
     this.setState({
       assignmentDueDate: date
     });
@@ -39,6 +50,20 @@ export default class AddAssignment extends Component {
       assignmentDescription: e.target.value
     });
   }
+
+  onChangeCourseName(e) {
+    console.log(e.target.value);
+    this.setState({
+      courseName: e.target.value
+    });
+  }
+
+  getCourses() {
+    return this.state.coursesArray.map((currentCourse, id) => {
+      return <ShowCourseName course={currentCourse} key={id} />;
+    });
+  }
+
   onSubmit(e) {
     e.preventDefault();
     const newAssignment = {
@@ -49,24 +74,61 @@ export default class AddAssignment extends Component {
       isNewAssignment: !this.state.isNewAssignment
     };
 
-    
+    if (this.state.assignmentName.length == 0) {
+      this.setState({
+        message: "Assignment name cannot be empty",
+        color: this.state.red
+      });
+    } else if (this.state.assignmentDescription.length == 0) {
+      this.setState({
+        message: "Assignment description cannot be empty",
+        color: this.state.red
+      });
+    } else if (
+      this.state.courseName == "" ||
+      this.state.courseName == "-Select Course-"
+    ) {
+      this.setState({
+        message: "Select a course from the dropdown",
+        color: this.state.red
+      });
+    } else {
+      axio
+        .post("http://localhost:4000/courseweb/assignment/add", newAssignment)
+        .then(res => {
+          this.setState({
+            message: "Assignment Added",
+            color: this.state.green
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
+      
+      this.setState({
+        assignmentName: "",
+        assignmentDescription: "",
+        courseName: "",
+        assignmentDueDate: new Date(),
+        isNewAssignment: false
+      });
+
+      setTimeout("location.reload(true);", 2000);
+    }
+  }
+
+  componentDidMount() {
     axio
-      .post("http://localhost:4000/courseweb/assignment/add", newAssignment)
-      .then(res => {
-        console.log(res.data);
+      .get("http://localhost:4000/courseweb/courses/all")
+      .then(courses => {
+        this.setState({
+          coursesArray: courses.data
+        });
       })
       .catch(err => {
         console.log(err);
       });
-
-    alert('Assignment Added!');
-    this.setState({
-      assignmentName: "",
-      assignmentDescription: "",
-      courseName: "",
-      assignmentDueDate: new Date(),
-      isNewAssignment: false
-    });
   }
 
   render() {
@@ -125,17 +187,30 @@ export default class AddAssignment extends Component {
                   </div>
 
                   <div className="form-group">
-                  <label>Select Course:</label>
-                  <select className="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                  </select>
+                    <label>Select Course:</label>
+                    <select
+                      value={this.state.courseName}
+                      onChange={this.onChangeCourseName}
+                      className="form-control"
+                    >
+                      <option>-Select Course-</option>
+                      {this.getCourses()}
+                    </select>
                   </div>
 
                   <button type="submit" className="btn btn-primary">
                     Submit
                   </button>
+
+                  <p
+                    style={{
+                      color: `${this.state.color}`,
+                      marginTop: 10,
+                      fontSize: 25
+                    }}
+                  >
+                    {this.state.message}
+                  </p>
                 </form>
               </div>
               <div className="col-2" />

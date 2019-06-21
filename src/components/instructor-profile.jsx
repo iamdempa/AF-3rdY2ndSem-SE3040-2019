@@ -97,13 +97,13 @@ export default class InstructorProfile extends Component {
             </li>
 
             <li className="nav-item">
-              <Link
+              <a                
+                href={`/instructor/${username}/assignments/update`}                
                 className="nav-link"
-                to={`/instructor/${username}/assignments/update`}
               >
                 <i className="fa fa-pencil" />
                 <span> Update Assignement</span>
-              </Link>
+              </a>
             </li>
 
             <li className="nav-item">

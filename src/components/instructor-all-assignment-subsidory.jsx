@@ -7,6 +7,7 @@ export default class AllAssignmentsSubsidory extends Component {
 
   render() {
     return (
+        
       <div id="content-wrapper">
         <div className="container-fluid">
           <ol className="breadcrumb">

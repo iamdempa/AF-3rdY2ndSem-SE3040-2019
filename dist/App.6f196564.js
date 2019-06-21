@@ -45784,6 +45784,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+var ShowCourseName = function ShowCourseName(props) {
+  return _react.default.createElement("option", {
+    value: props.course.name
+  }, props.course.name);
+};
+
 var AddAssignment =
 /*#__PURE__*/
 function (_Component) {
@@ -45800,12 +45806,19 @@ function (_Component) {
       assignmentDescription: "",
       courseName: "",
       assignmentDueDate: new Date(),
-      isNewAssignment: false
+      isNewAssignment: false,
+      coursesArray: [],
+      red: "red",
+      green: "green",
+      color: "",
+      message: "",
+      todayDate: new Date()
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.assignmentNameOnChange = _this.assignmentNameOnChange.bind(_assertThisInitialized(_this));
     _this.assignmentDescriptionOnChange = _this.assignmentDescriptionOnChange.bind(_assertThisInitialized(_this));
     _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    _this.onChangeCourseName = _this.onChangeCourseName.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -45831,8 +45844,28 @@ function (_Component) {
       });
     }
   }, {
+    key: "onChangeCourseName",
+    value: function onChangeCourseName(e) {
+      console.log(e.target.value);
+      this.setState({
+        courseName: e.target.value
+      });
+    }
+  }, {
+    key: "getCourses",
+    value: function getCourses() {
+      return this.state.coursesArray.map(function (currentCourse, id) {
+        return _react.default.createElement(ShowCourseName, {
+          course: currentCourse,
+          key: id
+        });
+      });
+    }
+  }, {
     key: "onSubmit",
     value: function onSubmit(e) {
+      var _this2 = this;
+
       e.preventDefault();
       var newAssignment = {
         assignmentName: this.state.assignmentName,
@@ -45842,19 +45875,52 @@ function (_Component) {
         isNewAssignment: !this.state.isNewAssignment
       };
 
-      _axios.default.post("http://localhost:4000/courseweb/assignment/add", newAssignment).then(function (res) {
-        console.log(res.data);
+      if (this.state.assignmentName.length == 0) {
+        this.setState({
+          message: "Assignment name cannot be empty",
+          color: this.state.red
+        });
+      } else if (this.state.assignmentDescription.length == 0) {
+        this.setState({
+          message: "Assignment description cannot be empty",
+          color: this.state.red
+        });
+      } else if (this.state.courseName == "" || this.state.courseName == "-Select Course-") {
+        this.setState({
+          message: "Select a course from the dropdown",
+          color: this.state.red
+        });
+      } else {
+        _axios.default.post("http://localhost:4000/courseweb/assignment/add", newAssignment).then(function (res) {
+          _this2.setState({
+            message: "Assignment Added",
+            color: _this2.state.green
+          });
+        }).catch(function (err) {
+          console.log(err);
+        });
+
+        this.setState({
+          assignmentName: "",
+          assignmentDescription: "",
+          courseName: "",
+          assignmentDueDate: new Date(),
+          isNewAssignment: false
+        });
+        setTimeout("location.reload(true);", 2000);
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this3 = this;
+
+      _axios.default.get("http://localhost:4000/courseweb/courses/all").then(function (courses) {
+        _this3.setState({
+          coursesArray: courses.data
+        });
       }).catch(function (err) {
         console.log(err);
-      });
-
-      alert('Assignment Added!');
-      this.setState({
-        assignmentName: "",
-        assignmentDescription: "",
-        courseName: "",
-        assignmentDueDate: new Date(),
-        isNewAssignment: false
       });
     }
   }, {
@@ -45910,11 +45976,19 @@ function (_Component) {
       })), _react.default.createElement("div", {
         className: "form-group"
       }, _react.default.createElement("label", null, "Select Course:"), _react.default.createElement("select", {
+        value: this.state.courseName,
+        onChange: this.onChangeCourseName,
         className: "form-control"
-      }, _react.default.createElement("option", null, "1"), _react.default.createElement("option", null, "2"), _react.default.createElement("option", null, "3"))), _react.default.createElement("button", {
+      }, _react.default.createElement("option", null, "-Select Course-"), this.getCourses())), _react.default.createElement("button", {
         type: "submit",
         className: "btn btn-primary"
-      }, "Submit"))), _react.default.createElement("div", {
+      }, "Submit"), _react.default.createElement("p", {
+        style: {
+          color: "".concat(this.state.color),
+          marginTop: 10,
+          fontSize: 25
+        }
+      }, this.state.message))), _react.default.createElement("div", {
         className: "col-2"
       })))));
     }
@@ -45976,8 +46050,16 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(EditAssignmentDate).call(this, props));
     _this.state = {
+      assignmentName: "",
+      assignmentDescription: "",
+      courseName: "",
       assignmentDueDate: new Date(),
-      assignmentObject: []
+      isNewAssignment: false,
+      originalDueDate: new Date(),
+      message: "",
+      red: "red",
+      green: "green",
+      color: ""
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
@@ -46001,10 +46083,16 @@ function (_Component) {
       _axios.default.get("http://localhost:4000/courseweb/assignments/update/" + this.props.match.params.assignmentID).then(function (res) {
         var today = new Date(res.data.assignmentDueDate);
         var datee = parseInt(today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
-        var dateString = datee;
+        var dateString = datee; // 6/24/2019
 
         _this2.setState({
-          assignmentDueDate: new Date(dateString)
+          assignmentName: res.data.assignmentName,
+          assignmentDescription: res.data.assignmentDescription,
+          courseName: res.data.courseName,
+          assignmentDueDate: new Date(dateString),
+          //Sat Jun 24 2019 03:59:53 GMT+0530 (India Standard Time)
+          isNewAssignment: res.data.isNewAssignment,
+          originalDueDate: new Date(dateString)
         });
       }).catch(function (err) {
         console.log(err);
@@ -46013,20 +46101,75 @@ function (_Component) {
   }, {
     key: "onSubmit",
     value: function onSubmit(e) {
+      var _this3 = this;
+
       e.preventDefault();
+      var obj = {
+        assignmentName: this.state.assignmentName,
+        assignmentDescription: this.state.assignmentDescription,
+        courseName: this.state.courseName,
+        assignmentDueDate: this.state.assignmentDueDate,
+        isNewAssignment: this.state.isNewAssignment
+      };
+      var originalDueDate = this.state.originalDueDate;
+      var newDueDate = this.state.assignmentDueDate;
+
+      if (newDueDate < originalDueDate) {
+        this.setState({
+          message: "Select only a later date",
+          color: this.state.red,
+          assignmentDueDate: this.state.originalDueDate
+        });
+      } else {
+        _axios.default.post("http://localhost:4000/courseweb/assignments/update/date/" + this.props.match.params.assignmentID, obj).then(function (res) {
+          console.log(res.data);
+
+          _this3.setState({
+            message: "Due  date updated",
+            color: _this3.state.green
+          });
+
+          setTimeout("location.reload(true);", 2000);
+        });
+      }
     }
   }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", {
         className: "container"
-      }, _react.default.createElement("h1", null, "Edit Assignment Date ", this.props.match.params.assignmentID), _react.default.createElement("br", null), _react.default.createElement("form", null, _react.default.createElement("div", {
+      }, _react.default.createElement("br", null), _react.default.createElement("ol", {
+        className: "breadcrumb"
+      }, _react.default.createElement("li", {
+        className: "breadcrumb-item"
+      }, _react.default.createElement("a", {
+        href: "/instructor/".concat(this.props.username, "/assignments/update")
+      }, "Back")), _react.default.createElement("li", {
+        className: "breadcrumb-item active"
+      }, "Update Assignment due date")), _react.default.createElement("h1", null, "Edit Assignment Date ", this.props.match.params.assignmentID), _react.default.createElement("br", null), _react.default.createElement("form", {
+        onSubmit: this.onSubmit
+      }, _react.default.createElement("div", {
         className: "form-group"
       }, _react.default.createElement("label", null, "Due Date:"), " ", _react.default.createElement(_reactDatepicker.default, {
         className: "form-control",
         selected: this.state.assignmentDueDate,
         onChange: this.handleChange
-      }))));
+      }), _react.default.createElement("small", {
+        className: "form-text text-muted"
+      }, "Select only to a later date than the original one")), _react.default.createElement("div", {
+        className: "form-group"
+      }, _react.default.createElement("button", {
+        type: "submit",
+        className: "btn btn-info"
+      }, _react.default.createElement("i", {
+        className: "fa fa-upload"
+      }), " Update Due Date"), _react.default.createElement("p", {
+        style: {
+          color: "".concat(this.state.color),
+          marginTop: 10,
+          fontSize: 25
+        }
+      }, this.state.message))));
     }
   }]);
 
@@ -46222,11 +46365,13 @@ function (_Component) {
             getRows: _this4.getRows()
           }));
         }
-      }), _react.default.createElement(_reactRouterDom.Route
-      /* path={`/instructor/IT17157124/assignments/update/:assignmentID`} */
-      , {
+      }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/instructor/IT17157124/assignments/update/:assignmentID",
-        component: _instructorEditAssignmentDate.default
+        render: function render(props) {
+          return _react.default.createElement(_instructorEditAssignmentDate.default, _extends({}, props, {
+            username: _this4.props.username
+          }));
+        }
       })));
     }
   }]);
@@ -46379,9 +46524,9 @@ function (_Component) {
         className: "fa fa-plus"
       }), _react.default.createElement("span", null, " Add Assignement"))), _react.default.createElement("li", {
         className: "nav-item"
-      }, _react.default.createElement(_reactRouterDom.Link, {
-        className: "nav-link",
-        to: "/instructor/".concat(username, "/assignments/update")
+      }, _react.default.createElement("a", {
+        href: "/instructor/".concat(username, "/assignments/update"),
+        className: "nav-link"
       }, _react.default.createElement("i", {
         className: "fa fa-pencil"
       }), _react.default.createElement("span", null, " Update Assignement"))), _react.default.createElement("li", {
@@ -49267,7 +49412,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1415" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "5973" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

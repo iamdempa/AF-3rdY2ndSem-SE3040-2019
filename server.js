@@ -62,6 +62,7 @@ const mongoose = require("mongoose");
 
 const InstructorDB = require("./public/DBModels/InstructorDB");
 const AssignmentDB = require('./public/DBModels/AssignmentDb');
+const CourseDB = require('./public/DBModels/CourseDB');
 
 const app = express();
 const router = express.Router();
@@ -98,8 +99,16 @@ router.route("/course/add").post((req, res) => {
 
 //get courses to-be accepted count
 router.route("/courses").get((req, res) => {
-  InstructorDB.countDocuments({}, function(err, count) {
+  CourseDB.countDocuments({}, function(err, count) {
     res.status(200).send(`${count}`);
+  });
+});
+
+//get course name - not my part though
+router.route("/courses/all").get((req, res) => {
+  CourseDB.find((err, courses) => {
+    if(err) throw err;
+    res.status(200).send(courses);
   });
 });
 
@@ -130,3 +139,26 @@ router.route('/assignments/update/:assignmentID').get((req, res) => {
     res.status(200).send(assignment);
   })
 });
+
+//update assignment due date
+router.route('/assignments/update/date/:assignmentID').post((req, res) => {
+  let id = req.params.assignmentID;
+  AssignmentDB.findById(id, (err, assignment) => {
+    if(err) throw err;
+    if(!assignment) return res.status(400).send('No data found');
+    
+    assignment.assignmentName = req.body.assignmentName;
+    assignment.assignmentDescription = req.body.assignmentDescription;
+    assignment.courseName = req.body.courseName;
+    assignment.assignmentDueDate = req.body.assignmentDueDate;
+    assignment.isNewAssignment = req.body.isNewAssignment;
+    
+
+    assignment.save().then(assignment => {
+      res.status(200).send('Data Updated: ' + assignment)
+    }).catch((err) => {
+      res.status(400).send('Error Occured: ' + err);
+    })
+  })
+});
+
